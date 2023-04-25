@@ -46,7 +46,7 @@ with data:
 		ck3=st.checkbox('Rift Volcanics')
 		ck4=st.checkbox('Oceanic Plateaus')
 		ck5=st.checkbox('Convergent Margins')
-		ck6=st.chechbox('Ocean Basin Flood Basalts')
+		ck6=st.checkbox('Ocean Basin Flood Basalts')
 		df_list = []
 		if ck1:
 			df_list.extend([pd.read_csv(file,encoding='ISO-8859-1') for file in craton_files])	
