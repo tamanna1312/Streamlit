@@ -33,12 +33,9 @@ with data:
 		oceanicPlat_files=glob.glob('Oceanic Plateaus/*.csv')
 		df_list4 = [pd.read_csv(file,encoding='ISO-8859-1') for file in oceanicPlat_files]
 		oceanicPlat_data=pd.concat(df_list4, ignore_index=True)
-		#convmargin_files=glob.glob('Convergent Margins/*.csv')
-		#df_list5 = [pd.read_csv(file,encoding='ISO-8859-1') for file in convmargin_files]
-		#convmargin_data=pd.concat(df_list5, ignore_index=True)
 		floodbasalt_files=glob.glob('OceanBasinFlood Basalts/*.csv')
-		df_list6 = [pd.read_csv(file,encoding='ISO-8859-1') for file in floodbasalt_files]
-		floodbasalt_data=pd.concat(df_list6, ignore_index=True)
+		df_list5 = [pd.read_csv(file,encoding='ISO-8859-1') for file in floodbasalt_files]
+		floodbasalt_data=pd.concat(df_list5, ignore_index=True)
 
 
 		ck1=st.checkbox('Craton Data')
@@ -58,8 +55,6 @@ with data:
 		if ck4:
 			df_list.extend([pd.read_csv(file,encoding='ISO-8859-1') for file in oceanicPlat_files])
 		if ck5:
-			df_list.extend([pd.read_csv(file, encoding='ISO-8859-1') for file in convmargin_files])
-		if ck6:
 			df_list.extend([pd.read_csv(file,encoding='ISO-8859-1') for file in floodbasalt_files])
 			
 		df_data = pd.concat(df_list, ignore_index=True)
@@ -72,6 +67,7 @@ with data:
 		sck2=st.sidebar.checkbox(('Continental Flood Basalts'),key=1)
 		sck3=st.sidebar.checkbox(('Rift Volcanics'),key=2)
 		sck4=st.sidebar.checkbox(('Oceanic Plateaus'),key=3)
+		sck5=st.sidebar.selectbox(('Flood Basalts'),key=6)
 		if sck1:
 			st.write(craton_files)
 		if sck2:
