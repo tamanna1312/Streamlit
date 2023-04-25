@@ -120,18 +120,18 @@ with plots:
 		st.map(final_data)
 	m = folium.Map(location=[45.372, -121.6972], zoom_start=12, tiles="Stamen Terrain")
 	folium.Marker(
-    		location=[craton_data[LATITUDE], craton_data[LONGITUDE]],
+    		location=[craton_data['LATITUDE MAX'], craton_data['LONGITUDE MAX']],
 		popup="Cratons",
     		icon=folium.Icon(icon="cloud"),
 	).add_to(m)
 	folium.Marker(
-    		location=[cfb_data[LATITUDE],cfb_data[LONGITUDE]],
+    		location=[cfb_data['LATITUDE MAX'],cfb_data['LONGITUDE MAX']],
 		popup="Continental Flood Basalt",
    		icon=folium.Icon(color="green"),
 	).add_to(m)
 
 	folium.Marker(
-   		location=[rift_data[LATITUDE],rift_data[LONGITUDE]],
+   		location=[rift_data['LATITUDE MAX'],rift_data['LONGITUDE MAX']],
 		popup="Rift Margins",
     		icon=folium.Icon(color="red", icon="info-sign"),
 	).add_to(m)
