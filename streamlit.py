@@ -37,7 +37,7 @@ with data:
 		df_list5 = [pd.read_csv(file,encoding='ISO-8859-1') for file in floodbasalt_files]
 		floodbasalt_data=pd.concat(df_list5, ignore_index=True)
 
-
+	with st.sidebar:
 		ck1=st.checkbox('Craton Data')
 		ck2=st.checkbox('Continental Flood Basalts')
 		ck3=st.checkbox('Rift Volcanics')
@@ -62,22 +62,22 @@ with data:
 		final_data.rename(columns={'LATITUDE MAX': 'LATITUDE', 'LONGITUDE MAX': 'LONGITUDE'}, inplace=True)
 		
 		st.write(final_data)
-	with st.sidebar:
-		sck1=st.sidebar.checkbox(('Craton Data'),key=0)
-		sck2=st.sidebar.checkbox(('Continental Flood Basalts'),key=1)
-		sck3=st.sidebar.checkbox(('Rift Volcanics'),key=2)
-		sck4=st.sidebar.checkbox(('Oceanic Plateaus'),key=3)
-		sck5=st.sidebar.checkbox(('Flood Basalts'),key=6)
-		if sck1:
-			st.write(craton_files)
-		if sck2:
-			st.write(cfb_files)
-		if sck3:
-			st.write(rifts_files)
-		if sck4:
-			st.write(oceanicPlat_files)
-		if sck5:
-			st.write(floodbasalt_files)
+	
+		#sck1=st.sidebar.checkbox(('Craton Data'),key=0)
+		#sck2=st.sidebar.checkbox(('Continental Flood Basalts'),key=1)
+		#sck3=st.sidebar.checkbox(('Rift Volcanics'),key=2)
+		#sck4=st.sidebar.checkbox(('Oceanic Plateaus'),key=3)
+		#sck5=st.sidebar.checkbox(('Flood Basalts'),key=6)
+		#if sck1:
+			#st.write(craton_files)
+		#if sck2:
+			#st.write(cfb_files)
+		#if sck3:
+			#st.write(rifts_files)
+		#if sck4:
+			#st.write(oceanicPlat_files)
+		#if sck5:
+			#st.write(floodbasalt_files)
 				
 	with col2:
 		st.header('To download files')
