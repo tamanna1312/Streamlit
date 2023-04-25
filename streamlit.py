@@ -20,7 +20,7 @@ with header:
 with data:
 	col1, col2= st.columns(2)
 	with col1:
-		st.header('Data')
+	
 		craton_files = glob.glob('Cratons/*.csv')
 		df_list1 = [pd.read_csv(file,encoding='ISO-8859-1') for file in craton_files]
 		craton_data   = pd.concat(df_list1, ignore_index=True)
@@ -36,6 +36,36 @@ with data:
 		floodbasalt_files=glob.glob('OceanBasinFlood Basalts/*.csv')
 		df_list5 = [pd.read_csv(file,encoding='ISO-8859-1') for file in floodbasalt_files]
 		floodbasalt_data=pd.concat(df_list5, ignore_index=True)
+		
+		st.header('To download files')
+		cratonData=craton_data.to_csv().encode('utf-8')
+		st.download_button(
+			label='Download Craton file',
+			data=cratonData,
+			file_name='Craton Data',
+			mime='text/csv'
+			)
+		CFBData=cfb_data.to_csv().encode('utf-8')
+		st.download_button(
+			label='Download CFB file',
+			data=CFBData,
+			file_name='Continental Flood Basalts Data',
+			mime='text/csv'
+			)
+		RiftData=rift_data.to_csv().encode('utf-8')
+		st.download_button(
+			label='Download Rift Volcanics file',
+			data=RiftData,
+			file_name='Rift Volcanics Data',
+			mime='text/csv'
+			)
+		OcnPlatData=oceanicPlat_data.to_csv().encode('utf-8')
+		st.download_button(
+			label='Download Convergent Margin file',
+			data=RiftData,
+			file_name='Oceanic Plateaus',
+			mime='text/csv'
+			)
 
 	with st.sidebar:
 		ck1=st.checkbox('Craton Data')
@@ -78,39 +108,8 @@ with data:
 			#st.write(oceanicPlat_files)
 		#if sck5:
 			#st.write(floodbasalt_files)
-				
-	with col2:
-		st.header('To download files')
-		cratonData=craton_data.to_csv().encode('utf-8')
-		st.download_button(
-			label='Download Craton file',
-			data=cratonData,
-			file_name='Craton Data',
-			mime='text/csv'
-			)
-		CFBData=cfb_data.to_csv().encode('utf-8')
-		st.download_button(
-			label='Download CFB file',
-			data=CFBData,
-			file_name='Continental Flood Basalts Data',
-			mime='text/csv'
-			)
-		RiftData=rift_data.to_csv().encode('utf-8')
-		st.download_button(
-			label='Download Rift Volcanics file',
-			data=RiftData,
-			file_name='Rift Volcanics Data',
-			mime='text/csv'
-			)
-		OcnPlatData=oceanicPlat_data.to_csv().encode('utf-8')
-		st.download_button(
-			label='Download Convergent Margin file',
-			data=RiftData,
-			file_name='Oceanic Plateaus',
-			mime='text/csv'
-			)
 		
-			
+				
 with plots:
 	st.header('Location of datapoints  on a map')
 	st.text('Plot 1')
