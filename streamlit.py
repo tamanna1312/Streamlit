@@ -33,9 +33,9 @@ with data:
 		oceanicPlat_files=glob.glob('Oceanic Plateaus/*.csv')
 		df_list4 = [pd.read_csv(file,encoding='ISO-8859-1') for file in oceanicPlat_files]
 		oceanicPlat_data=pd.concat(df_list4, ignore_index=True)
-		convmargin_files=glob.glob('Convergent Margins/*.csv')
-		df_list5 = [pd.read_csv(file,encoding='ISO-8859-1') for file in convmargin_files]
-		convmargin_data=pd.concat(df_list5, ignore_index=True)
+		#convmargin_files=glob.glob('Convergent Margins/*.csv')
+		#df_list5 = [pd.read_csv(file,encoding='ISO-8859-1') for file in convmargin_files]
+		#convmargin_data=pd.concat(df_list5, ignore_index=True)
 		floodbasalt_files=glob.glob('OceanBasinFlood Basalts/*.csv')
 		df_list6 = [pd.read_csv(file,encoding='ISO-8859-1') for file in floodbasalt_files]
 		floodbasalt_data=pd.concat(df_list6, ignore_index=True)
