@@ -126,13 +126,13 @@ with plots:
 	).add_to(m)
 	folium.Marker(
     		location=[cfb_data[LATITUDE],cfb_data[LONGITUDE]],
-		popup="Continental Flood Basalt"
+		popup="Continental Flood Basalt",
    		icon=folium.Icon(color="green"),
 	).add_to(m)
 
 	folium.Marker(
    		location=[rift_data[LATITUDE],rift_data[LONGITUDE]],
-		popup="Rift Margins"
+		popup="Rift Margins",
     		icon=folium.Icon(color="red", icon="info-sign"),
 	).add_to(m)
 	m
