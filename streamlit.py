@@ -118,34 +118,11 @@ with data:
 with plots:
 	st.header('Location of datapoints  on a map')
 	st.text('Plot 1')
-	#button2=st.expander('Plot 1')
-	#if button2:
-	if ck1:
-		st.map(craton_data)
-	if ck2:
-		st.map(cfb_data)
-	if ck3:
-		st.map(rift_data)
+	button2=st.expander('Plot 1')
+	if button2:
+		st.map(final_data)
 		
-	m = folium.Map(location=[45.372, -121.6972], zoom_start=12, tiles="Stamen Terrain")
-	folium.Marker(
-    		location=craton_data[['LATITUDE MAX','LONGITUDE MAX']].values,
-		popup="Cratons",
-    		icon=folium.Icon(icon="cloud"),
-	).add_to(m)
-	folium.Marker(
-    		location=cfb_data[['LATITUDE MAX','LONGITUDE MAX']].values,
-		popup="Continental Flood Basalt",
-   		icon=folium.Icon(color="green"),
-	).add_to(m)
-
-	folium.Marker(
-   		location=rift_data[['LATITUDE MAX','LONGITUDE MAX']].values,
-		popup="Rift Margins",
-    		icon=folium.Icon(color="red", icon="info-sign"),
-	).add_to(m)
-	m
-
+	
 	
 	st.text('Plot 2')
 	st.markdown('Scatter Plot for Major Elements')
