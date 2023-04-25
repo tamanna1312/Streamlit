@@ -67,7 +67,7 @@ with data:
 		sck2=st.sidebar.checkbox(('Continental Flood Basalts'),key=1)
 		sck3=st.sidebar.checkbox(('Rift Volcanics'),key=2)
 		sck4=st.sidebar.checkbox(('Oceanic Plateaus'),key=3)
-		sck5=st.sidebar.selectbox(('Flood Basalts'),key=6)
+		sck5=st.sidebar.checkbox(('Flood Basalts'),key=6)
 		if sck1:
 			st.write(craton_files)
 		if sck2:
@@ -76,7 +76,8 @@ with data:
 			st.write(rifts_files)
 		if sck4:
 			st.write(oceanicPlat_files)
-	
+		if sck5:
+			st.write(floodbasalt_files)
 				
 	with col2:
 		st.header('To download files')
@@ -108,6 +109,7 @@ with data:
 			file_name='Oceanic Plateaus',
 			mime='text/csv'
 			)
+		
 			
 with plots:
 	st.header('Location of datapoints  on a map')
