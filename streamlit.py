@@ -117,7 +117,13 @@ with plots:
 	st.text('Plot 1')
 	button2=st.expander('Plot 1')
 	if button2:
-		st.map(final_data)
+		if ck1:
+			st.map(craton data)
+		if ck2:
+			st.map(cfb_data)
+		if ck3:
+			st.map(rift_data)
+		
 	m = folium.Map(location=[45.372, -121.6972], zoom_start=12, tiles="Stamen Terrain")
 	folium.Marker(
     		location=craton_data[['LATITUDE MAX','LONGITUDE MAX']].values,
