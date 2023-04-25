@@ -122,16 +122,19 @@ with plots:
 
 		folium.Marker(
     		location=craton_data[LATITUDE], craton_data[LONGITUDE],
+		popup="Cratons",
     		icon=folium.Icon(icon="cloud"),
 		).add_to(m)
 
 		folium.Marker(
     		location=cfb_data[LATITUDE],cfb_data[LONGITUDE],
+		popup="Continental Flood Basalt"
    		icon=folium.Icon(color="green"),
 		).add_to(m)
 
 		folium.Marker(
    		location=rift_data[LATITUDE],rift_data[LONGITUDE],
+		popup="Rift Margins"
     		icon=folium.Icon(color="red", icon="info-sign"),
 		).add_to(m)
 
