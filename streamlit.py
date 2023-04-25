@@ -92,6 +92,9 @@ with data:
 		df_data = pd.concat(df_list, ignore_index=True)
 		final_data=df_data.fillna(0)
 		final_data.rename(columns={'LATITUDE MAX': 'LATITUDE', 'LONGITUDE MAX': 'LONGITUDE'}, inplace=True)
+		craton_data.rename(columns={'LATITUDE MAX': 'LATITUDE', 'LONGITUDE MAX': 'LONGITUDE'}, inplace=True)
+		cfb_data.rename(columns={'LATITUDE MAX': 'LATITUDE', 'LONGITUDE MAX': 'LONGITUDE'}, inplace=True)
+		rift_data.rename(columns={'LATITUDE MAX': 'LATITUDE', 'LONGITUDE MAX': 'LONGITUDE'}, inplace=True)
 		
 		st.write(final_data)
 	
