@@ -68,6 +68,7 @@ with data:
 			)
 
 	with st.sidebar:
+		st.header('Data Selection')
 		ck1=st.checkbox('Craton Data')
 		ck2=st.checkbox('Continental Flood Basalts')
 		ck3=st.checkbox('Rift Volcanics')
