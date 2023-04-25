@@ -115,14 +115,14 @@ with data:
 with plots:
 	st.header('Location of datapoints  on a map')
 	st.text('Plot 1')
-	button2=st.expander('Plot 1')
-	if button2:
-		if ck1:
-			st.map(craton data)
-		if ck2:
-			st.map(cfb_data)
-		if ck3:
-			st.map(rift_data)
+	#button2=st.expander('Plot 1')
+	#if button2:
+	if ck1:
+		st.map(craton data)
+	if ck2:
+		st.map(cfb_data)
+	if ck3:
+		st.map(rift_data)
 		
 	m = folium.Map(location=[45.372, -121.6972], zoom_start=12, tiles="Stamen Terrain")
 	folium.Marker(
