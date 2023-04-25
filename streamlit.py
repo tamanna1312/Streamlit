@@ -118,7 +118,7 @@ with plots:
 	#button2=st.expander('Plot 1')
 	#if button2:
 	if ck1:
-		st.map(craton data)
+		st.map(craton_data)
 	if ck2:
 		st.map(cfb_data)
 	if ck3:
