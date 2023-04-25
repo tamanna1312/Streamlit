@@ -118,28 +118,25 @@ with plots:
 	button2=st.expander('Plot 1')
 	if button2:
 		st.map(final_data)
-		m = folium.Map(location=[45.372, -121.6972], zoom_start=12, tiles="Stamen Terrain")
+	m = folium.Map(location=[45.372, -121.6972], zoom_start=12, tiles="Stamen Terrain")
+	folium.Marker(
+    		location=craton_data[LATITUDE], craton_data[LONGITUDE],
+		popup="Cratons",
+    		icon=folium.Icon(icon="cloud"),
+	).add_to(m)
+	folium.Marker(
+    		location=cfb_data[LATITUDE],cfb_data[LONGITUDE],
+		popup="Continental Flood Basalt"
+   		icon=folium.Icon(color="green"),
+	).add_to(m)
 
-		folium.Marker(
-    			location=craton_data[LATITUDE], craton_data[LONGITUDE],
-			popup="Cratons",
-    			icon=folium.Icon(icon="cloud"),
-		).add_to(m)
+	folium.Marker(
+   		location=rift_data[LATITUDE],rift_data[LONGITUDE],
+		popup="Rift Margins"
+    		icon=folium.Icon(color="red", icon="info-sign"),
+	).add_to(m)
+	m
 
-		folium.Marker(
-    			location=cfb_data[LATITUDE],cfb_data[LONGITUDE],
-			popup="Continental Flood Basalt"
-   			icon=folium.Icon(color="green"),
-		).add_to(m)
-
-		folium.Marker(
-   			location=rift_data[LATITUDE],rift_data[LONGITUDE],
-			popup="Rift Margins"
-    			icon=folium.Icon(color="red", icon="info-sign"),
-		).add_to(m)
-
-
-m
 	
 	st.text('Plot 2')
 	st.markdown('Scatter Plot for Major Elements')
