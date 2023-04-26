@@ -119,9 +119,9 @@ with data:
 with plots:
 	st.header('Location of datapoints  on a map')
 	st.text('Plot 1')
-	button2=st.expander('Plot 1')
-	if button2:
-		st.map(final_data)
+	#button2=st.expander('Plot 1')
+	#if button2:
+		#st.map(final_data)
 	craton_data1=craton_data.fillna(0)
 	map = folium.Map(location=[22, 87], zoom_start=14, control_scale=True,tiles = 'Stamen Terrain')
 	for i in range(0,len(craton_data1)):
