@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 import altair as alt
 import glob
 import folium
+from streamlit_folium import st_folium
 
 header = st.container()
 data= st.container()
@@ -128,6 +129,7 @@ with plots:
       		location=[craton_data1.iloc[i]['LATITUDE'], craton_data1.iloc[i]['LONGITUDE']],
       		popup=craton_data1.iloc[i]['LOCATION'],
   	 ).add_to(map)
+	st_map=st_folium(mp, width=700, height=450)
 	
 
 
