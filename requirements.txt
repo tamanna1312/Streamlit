@@ -6,3 +6,4 @@ streamlit==1.20.0
 altair
 bokeh==2.4.3
 folium
+streamlit_folium==0.6.13
