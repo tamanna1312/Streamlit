@@ -128,6 +128,7 @@ with plots:
       		location=[craton_data1.iloc[i]['LATITUDE'], craton_data1.iloc[i]['LONGITUDE']],
       		popup=craton_data1.iloc[i]['LOCATION'],
   	 ).add_to(map)
+	plt.show(map)
 
 
 		
