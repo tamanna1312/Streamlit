@@ -121,11 +121,12 @@ with plots:
 	button2=st.expander('Plot 1')
 	if button2:
 		st.map(final_data)
+	craton_data1=craton_data.fillna(0)
 	map = folium.Map(location=[22, 87], zoom_start=14, control_scale=True,tiles = 'Stamen Terrain')
-	for i in range(0,len(craton_data)):
+	for i in range(0,len(craton_data1)):
     		folium.Marker(
-      		location=[craton_data.iloc[i]['LATITUDE'], craton_data.iloc[i]['LONGITUDE']],
-      		popup=craton_data.iloc[i]['LOCATION'],
+      		location=[craton_data1.iloc[i]['LATITUDE'], craton_data1.iloc[i]['LONGITUDE']],
+      		popup=craton_data1.iloc[i]['LOCATION'],
   	 ).add_to(map)
 
 
