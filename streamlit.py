@@ -125,21 +125,21 @@ with plots:
 	if ck1:
 		craton_data1=craton_data.fillna(0)
 		map = folium.Map(location=[22, 87], zoom_start=5, control_scale=True,tiles = 'Stamen Terrain')
-		for i in range(0,len(craton_data1)):
+		for i in range(0,len(final_data)):
     			folium.Marker(
-      			location=[craton_data1.iloc[i]['LATITUDE'], craton_data1.iloc[i]['LONGITUDE']],
-      			popup=craton_data1.iloc[i]['LOCATION'],
+      			location=[final_data.iloc[i]['LATITUDE'], final_data.iloc[i]['LONGITUDE']],
+      			popup=final_data.iloc[i]['LOCATION'],
   	 	).add_to(map)
-		st_map=st_folium(map, width=700, height=450)
 	if ck2:
-		cfb_data1=cfb_data.fillna(0)
+		craton_data1=craton_data.fillna(0)
 		map = folium.Map(location=[22, 87], zoom_start=5, control_scale=True,tiles = 'Stamen Terrain')
-		for i in range(0,len(cfb_data1)):
+		for i in range(0,len(final_data)):
     			folium.Marker(
-      			location=[cfb_data1.iloc[i]['LATITUDE'], cfb_data1.iloc[i]['LONGITUDE']],
-      			popup=cfb_data1.iloc[i]['LOCATION'],
+      			location=[final_data.iloc[i]['LATITUDE'], final_data.iloc[i]['LONGITUDE']],
+      			popup=final_data.iloc[i]['LOCATION'],
   	 	).add_to(map)
 		st_map=st_folium(map, width=700, height=450)
+	
 	st.text('Plot 2')
 	st.markdown('Scatter Plot for Major Elements')
 	
