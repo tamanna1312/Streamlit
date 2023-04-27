@@ -39,35 +39,35 @@ with data:
 		df_list5 = [pd.read_csv(file,encoding='ISO-8859-1') for file in floodbasalt_files]
 		floodbasalt_data=pd.concat(df_list5, ignore_index=True)
 		
-		st.header('To download files')
-		cratonData=craton_data.to_csv().encode('utf-8')
-		st.download_button(
-			label='Download Craton file',
-			data=cratonData,
-			file_name='Craton Data',
-			mime='text/csv'
+		#st.header('To download files')
+		#cratonData=craton_data.to_csv().encode('utf-8')
+		#st.download_button(
+			#label='Download Craton file',
+			#data=cratonData,
+			#file_name='Craton Data',
+			#mime='text/csv'
+			#)
+		#CFBData=cfb_data.to_csv().encode('utf-8')
+		#st.download_button(
+			#label='Download CFB file',
+			#data=CFBData,
+			#file_name='Continental Flood Basalts Data',
+			#mime='text/csv'
 			)
-		CFBData=cfb_data.to_csv().encode('utf-8')
-		st.download_button(
-			label='Download CFB file',
-			data=CFBData,
-			file_name='Continental Flood Basalts Data',
-			mime='text/csv'
-			)
-		RiftData=rift_data.to_csv().encode('utf-8')
-		st.download_button(
-			label='Download Rift Volcanics file',
-			data=RiftData,
-			file_name='Rift Volcanics Data',
-			mime='text/csv'
-			)
-		OcnPlatData=oceanicPlat_data.to_csv().encode('utf-8')
-		st.download_button(
-			label='Download Convergent Margin file',
-			data=RiftData,
-			file_name='Oceanic Plateaus',
-			mime='text/csv'
-			)
+		#RiftData=rift_data.to_csv().encode('utf-8')
+		#st.download_button(
+			#label='Download Rift Volcanics file',
+			#data=RiftData,
+			#file_name='Rift Volcanics Data',
+			#mime='text/csv'
+			#)
+		#OcnPlatData=oceanicPlat_data.to_csv().encode('utf-8')
+		#st.download_button(
+			#label='Download Convergent Margin file',
+			#data=RiftData,
+			#file_name='Oceanic Plateaus',
+			#mime='text/csv'
+			#)
 
 	with st.sidebar:
 		st.header('Data Selection')
