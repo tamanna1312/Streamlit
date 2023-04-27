@@ -138,7 +138,7 @@ with plots:
       			location=[cfb_data1.iloc[i]['LATITUDE'], cfb_data1.iloc[i]['LONGITUDE']],
       			popup=cfb_data1.iloc[i]['LOCATION'],
   	 	).add_to(map)
-		st_map=st_folium(map, width=700, height=450)
+	st_map=st_folium(map, width=700, height=450)
 	
 	st.text('Plot 2')
 	st.markdown('Scatter Plot for Major Elements')
