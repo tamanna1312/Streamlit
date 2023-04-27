@@ -139,6 +139,16 @@ with plots:
       			popup=cfb_data1.iloc[i]['LOCATION'],
 			icon=folium.Icon(color='red', icon='pushpin'),
   	 	).add_to(map)
+	if ck3:
+		rift_data1=rift_data.fillna(0)
+		for i in range(0,len(rift_data1)):
+    			folium.Marker(
+			color='red',
+      			location=[rift_data1.iloc[i]['LATITUDE'], rift_data1.iloc[i]['LONGITUDE']],
+      			popup=rift_data1.iloc[i]['LOCATION'],
+			icon=folium.Icon(color='green', icon='pushpin'),
+  	 	).add_to(map)
+		
 	st_map=st_folium(map, width=700, height=450)
 	
 	st.text('Plot 2')
