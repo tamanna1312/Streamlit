@@ -136,7 +136,7 @@ with plots:
     			folium.Marker(
 			color='red',
       			location=[cfb_data1.iloc[i]['LATITUDE'], cfb_data1.iloc[i]['LONGITUDE']],
-      			popup=cfb_data1.iloc[i]['LOCATION']
+      			popup=cfb_data1.iloc[i]['LOCATION'],
 			icon=folium.Icon(color='red', icon='pushpin'),
   	 	).add_to(map)
 	st_map=st_folium(map, width=700, height=450)
