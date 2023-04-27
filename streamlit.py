@@ -53,7 +53,7 @@ with data:
 			#data=CFBData,
 			#file_name='Continental Flood Basalts Data',
 			#mime='text/csv'
-			)
+			#)
 		#RiftData=rift_data.to_csv().encode('utf-8')
 		#st.download_button(
 			#label='Download Rift Volcanics file',
