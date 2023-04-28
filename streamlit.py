@@ -167,9 +167,9 @@ with plots:
 	st_map=st_folium(map, width=700, height=450)
 	
 	st.text('Plot 2')
-	st.markdown('Scatter Plot for Major Elements')
+	st.markdown('PLOTS')
 	
-	tab1,tab2=st.tabs(['Scatter Plot','Line Plot'])
+	tab1,tab2=st.tabs(['Scatter Plot','Category Plot'])
 	with tab1:
 		col1, col2 = st.columns([1,5])
 		with col1:
