@@ -213,4 +213,15 @@ with plots:
 
 		#p.line(final_data[x]/10000, final_data[y]/10000, legend_label='Trend', line_width=2)
 		st.bokeh_chart(p1, use_container_width=True)
+		p1 = figure(
+				title='ternary plot'
+				)
+		if ck1:
+			p1=px.scatter_ternary(craton_data, a="SIO2(WT%)", b="MGO(WT%)", c="CAO(WT%)")
+		if ck3:
+			p1=px.scatter_ternary(rift_data, a="SIO2(WT%)", b="MGO(WT%)", c="CAO(WT%)")
+
+		st.plotly_chart(p1, use_container_width=True)
+		
+		
 		
