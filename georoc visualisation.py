@@ -11,7 +11,7 @@ st.title('GEOROC data visualiser')
 
 sel_tect_unit = st.multiselect('select tectonic unit(s)', ['Cratons', 'CFBs', 'Rift Volcanics', 'Oceanic Plateaus', 'OceanBasinFlood Basalts'], ['Cratons'])
 
-nr_of_rand_smp = 2
+nr_of_rand_smp = 20
 
 df_all_tect_units = []
 for i in sel_tect_unit:
