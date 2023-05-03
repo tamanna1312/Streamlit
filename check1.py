@@ -23,7 +23,7 @@ for i in sel_tect_unit:
 		l2 = l.fillna(0)
 		#if len(l2) > nr_of_rand_smp:
 			#df_list.append(l2.sample(nr_of_rand_smp))
-df_all_tect_units.append(pd.concat(df_list).reset_index())
+	df_all_tect_units.append(pd.concat(df_list).reset_index())
 
 
 sel_vis = st.radio('select visualisation', ['map', 'plots'], horizontal=True)
