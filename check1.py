@@ -21,7 +21,7 @@ for i in sel_tect_unit:
 		l2 = l.fillna(0)
 		df_list.append(l2)
 	df_all_tect_units.append(pd.concat(df_list).reset_index())
-st.write(df_all_tect_units)
+st.write(l2)
 
 sel_vis = st.radio('select visualisation', ['map', 'plots'], horizontal=True)
 
