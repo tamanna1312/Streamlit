@@ -25,8 +25,6 @@ for i in sel_tect_unit:
 			df_list.append(l2.sample(nr_of_rand_smp))
 	df_all_tect_units.append(pd.concat(df_list).reset_index())
 
-# st.write(df_all_tect_units[0])
-
 
 sel_vis = st.radio('select visualisation', ['map', 'plots'], horizontal=True)
 
