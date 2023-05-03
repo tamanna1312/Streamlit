@@ -21,7 +21,7 @@ for i in folders:
 		df.rename(columns={'LATITUDE MAX': 'LATITUDE', 'LONGITUDE MAX': 'LONGITUDE'}, inplace=True)
 		df2 = df.fillna(0)
 		final_data=df_list.append(df2)
-all_data.append(pd.concat(final_data).reset_index())
+	all_data.append(pd.concat(final_data).reset_index())
 st.write(all_data)
 #button1=st.expander('See Data')
 #if button1:
