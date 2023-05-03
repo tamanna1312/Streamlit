@@ -10,33 +10,33 @@ from streamlit_folium import folium_static
 st.title('GEOROC DATA VISUALISER')
 st.text('The Georoc data contains major and trace element concentrations, radiogenic and nonradiogenic isotope ratios as well as analytical ages for whole rocks, glasses, minerals and inclusions. Metadata include geospatial and other sample information, for example latitude, longitude, type of eruption etc, analytical details and references.')
 st.header('Data Selection')
-sel_tect_unit = st.multiselect('Select Tectonic Unit(s)', ['Cratons', 'CFBs', 'Rift Volcanics', 'Oceanic Plateaus', 'OceanBasinFlood Basalts','Complex Volcanic Settings','Convergent Margins'], ['Cratons'])
+folders = st.multiselect('Select Tectonic Unit(s)', ['Cratons', 'CFBs', 'Rift Volcanics', 'Oceanic Plateaus', 'OceanBasinFlood Basalts','Complex Volcanic Settings','Convergent Margins'], ['Cratons'])
 
-df_all_tect_units = []
-for i in sel_tect_unit:
+all_data = []
+for i in folders:
 	files = glob.glob(i+'/*.csv')
 	df_list = []
 	for file in files:
-		l = pd.read_csv(file,encoding='ISO-8859-1')
-		l.rename(columns={'LATITUDE MAX': 'LATITUDE', 'LONGITUDE MAX': 'LONGITUDE'}, inplace=True)
-		l2 = l.fillna(0)
-		df_list.append(l2)
-	df_all_tect_units.append(pd.concat(df_list).reset_index())
-st.write(df_all_tect_units)
-button1=st.expander('See Data')
-if button1:
-	st.write(l2)
+		df = pd.read_csv(file,encoding='ISO-8859-1')
+		df.rename(columns={'LATITUDE MAX': 'LATITUDE', 'LONGITUDE MAX': 'LONGITUDE'}, inplace=True)
+		df2 = df.fillna(0)
+		final_data=df_list.append(df2)
+all_data.append(pd.concat(final_data).reset_index())
+st.write(all_data)
+#button1=st.expander('See Data')
+#if button1:
+	#st.write(l2)
 
 sel_vis = st.radio('Select Visualisation', ['map', 'plots'], horizontal=True)
 
 if sel_vis == 'map':
 	colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
 	map = folium.Map(location=[22, 87], zoom_start=1, control_scale=True,tiles = 'Stamen Terrain')
-	for j in range(len(sel_tect_unit)):
-		for i in range(0,len(df_all_tect_units[j])):
+	for j in range(len(folders)):
+		for i in range(0,len(all_data[j])):
 			folium.Marker(
-				location=[df_all_tect_units[j].iloc[i]['LATITUDE'], df_all_tect_units[j].iloc[i]['LONGITUDE']],
-				popup=df_all_tect_units[j].iloc[i]['LOCATION'],
+				location=[all_data[j].iloc[i]['LATITUDE'], all_data[j].iloc[i]['LONGITUDE']],
+				popup=all_data[j].iloc[i]['LOCATION'],
 			icon=folium.Icon(color=colours[j], icon='pushpin'),
 		).add_to(map)
 
@@ -49,16 +49,16 @@ else:
 	with tab1:
 		col1, col2 = st.columns([1,5])
 		with col1:
-			x = st.selectbox('x-axis', df_all_tect_units[0].columns.tolist()[28:146])
-			y = st.selectbox('y-axis', df_all_tect_units[0].columns.tolist()[28:146], index = 9)
+			x = st.selectbox('x-axis', all_data[0].columns.tolist()[28:146])
+			y = st.selectbox('y-axis', all_data[0].columns.tolist()[28:146], index = 9)
 		with col2:
 				p = figure(
 				title='scatter plot',
 				x_axis_label=x,
 				y_axis_label=y)
 
-				for i in range(len(sel_tect_unit)):
-					p.scatter(df_all_tect_units[i][x], df_all_tect_units[i][y], legend_label=sel_tect_unit[i], line_width=2,color=colours[i])
+				for i in range(len(folders)):
+					p.scatter(all_data[i][x], all_data[i][y], legend_label=folders[i], line_width=2,color=colours[i])
 				st.bokeh_chart(p, use_container_width=True)
 	
 	with tab2:
@@ -67,14 +67,14 @@ else:
 	with tab3:
 		col1, col2 = st.columns([1,5])
 		with col1:
-			tern_top = st.selectbox('top', df_all_tect_units[0].columns.tolist()[28:146])
-			tern_left = st.selectbox('left', df_all_tect_units[0].columns.tolist()[28:146], index=9)
-			tern_right = st.selectbox('right', df_all_tect_units[0].columns.tolist()[28:146], index=3)
+			tern_top = st.selectbox('top', all_data[0].columns.tolist()[28:146])
+			tern_left = st.selectbox('left', all_data[0].columns.tolist()[28:146], index=9)
+			tern_right = st.selectbox('right', all_data[0].columns.tolist()[28:146], index=3)
 		with col2:
 			tern_plot_data = []
-			for i in range(len(df_all_tect_units)):
-				df_tmp = df_all_tect_units[i]
-				df_tmp['tectonic unit'] = pd.Series([sel_tect_unit[i]] * len(df_all_tect_units[i]))
+			for i in range(len(all_data)):
+				df_tmp = all_data[i]
+				df_tmp['tectonic unit'] = pd.Series([folders[i]] * len(all_data[i]))
 				tern_plot_data.append(df_tmp)
 
 			p=px.scatter_ternary(pd.concat(tern_plot_data), a=tern_top, b=tern_left, c=tern_right, color='tectonic unit')
