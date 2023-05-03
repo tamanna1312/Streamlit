@@ -11,8 +11,6 @@ st.title('GEOROC data visualiser')
 
 sel_tect_unit = st.multiselect('select tectonic unit(s)', ['Cratons', 'CFBs', 'Rift Volcanics', 'Oceanic Plateaus', 'OceanBasinFlood Basalts'], ['Cratons'])
 
-#nr_of_rand_smp = 20
-
 df_all_tect_units = []
 for i in sel_tect_unit:
 	files = glob.glob(i+'/*.csv')
@@ -21,10 +19,9 @@ for i in sel_tect_unit:
 		l = pd.read_csv(file,encoding='ISO-8859-1')
 		l.rename(columns={'LATITUDE MAX': 'LATITUDE', 'LONGITUDE MAX': 'LONGITUDE'}, inplace=True)
 		l2 = l.fillna(0)
-		#if len(l2) > nr_of_rand_smp:
 		df_list.append(l2)
 	df_all_tect_units.append(pd.concat(df_list).reset_index())
-
+st.write(l)
 
 sel_vis = st.radio('select visualisation', ['map', 'plots'], horizontal=True)
 
