@@ -7,9 +7,10 @@ import folium
 from streamlit_folium import folium_static
 
 
-st.title('GEOROC data visualiser')
-
-sel_tect_unit = st.multiselect('select tectonic unit(s)', ['Cratons', 'CFBs', 'Rift Volcanics', 'Oceanic Plateaus', 'OceanBasinFlood Basalts'], ['Cratons'])
+st.title('GEOROC DATA VISUALISER')
+st.text('The Georoc data contains major and trace element concentrations, radiogenic and nonradiogenic isotope ratios as well as analytical ages for whole rocks, glasses, minerals and inclusions. Metadata include geospatial and other sample information, for example latitude, longitude, type of eruption etc, analytical details and references.')
+st.header('Data Selection')
+sel_tect_unit = st.multiselect('Select Tectonic Unit(s)', ['Cratons', 'CFBs', 'Rift Volcanics', 'Oceanic Plateaus', 'OceanBasinFlood Basalts','Complex Volcanic Settings','Convergent Margins'], ['Cratons'])
 
 df_all_tect_units = []
 for i in sel_tect_unit:
@@ -21,9 +22,11 @@ for i in sel_tect_unit:
 		l2 = l.fillna(0)
 		df_list.append(l2)
 	df_all_tect_units.append(pd.concat(df_list).reset_index())
-st.write(l2)
+button1=st.expander('See Data')
+if button1:
+	st.write(l2)
 
-sel_vis = st.radio('select visualisation', ['map', 'plots'], horizontal=True)
+sel_vis = st.radio('Select Visualisation', ['map', 'plots'], horizontal=True)
 
 if sel_vis == 'map':
 	colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
