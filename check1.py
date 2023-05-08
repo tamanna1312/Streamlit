@@ -65,8 +65,7 @@ else:
 				st.bokeh_chart(p, use_container_width=True)
 	
 	with tab2:
-		#for j in range(len(folders)):
-			#for i in range(0,len(all_data[j])):
+		st.write('no')
 				
 		
 	with tab3:
