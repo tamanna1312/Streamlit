@@ -69,7 +69,7 @@ else:
 		for j in range(len(folders)):
 			for i in range(0,len(all_data[j])):
 				df1a=all_data[selected_columns]
-				st.write(df1a)
+			st.write(df1a)
 				
 		
 	with tab3:
