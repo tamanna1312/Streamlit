@@ -68,7 +68,7 @@ else:
 		selected_columns=[['LA(PPM)','CE(PPM)','ND(PPM)','SM(PPM)','EU(PPM)','GD(PPM)','TB(PPM)','DY(PPM)','HO(PPM)','ER(PPM)','TM(PPM)','YB(PPM)','LU(PPM)']]
 		for j in range(len(folders)):
 			for i in range(0,len(all_data[j])):
-				df1a=all_data[i][selected_columns]
+				df1a=all_data[j][i][selected_columns]
 			st.write(df1a)
 				
 		
