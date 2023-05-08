@@ -65,9 +65,10 @@ else:
 				st.bokeh_chart(p, use_container_width=True)
 	
 	with tab2:
+		selected_columns=['LA(PPM)','CE(PPM)','ND(PPM)','SM(PPM)','EU(PPM)','GD(PPM)','TB(PPM)','DY(PPM)','HO(PPM)','ER(PPM)','TM(PPM)','YB(PPM)','LU(PPM)']
 		for j in range(len(folders)):
 			for i in range(0,len(all_data[j])):
-				df1a=all_data[i][['LA(PPM)','CE(PPM)','ND(PPM)','SM(PPM)','EU(PPM)','GD(PPM)','TB(PPM)','DY(PPM)','HO(PPM)','ER(PPM)','TM(PPM)','YB(PPM)','LU(PPM)']]
+				df1a=all_data[selected_columns]
 				st.write(df1a)
 				
 		
