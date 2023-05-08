@@ -67,8 +67,8 @@ else:
 	with tab2:
 		selected_columns=[['LA(PPM)','CE(PPM)','ND(PPM)','SM(PPM)','EU(PPM)','GD(PPM)','TB(PPM)','DY(PPM)','HO(PPM)','ER(PPM)','TM(PPM)','YB(PPM)','LU(PPM)']]
 		for i in range(len(folders)):
-				df1a=all_data[i][selected_columns]
-			st.write(df1a)
+			df1a=all_data[i][selected_columns]
+		st.write(df1a)
 				
 		
 	with tab3:
