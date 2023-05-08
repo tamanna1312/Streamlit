@@ -23,8 +23,8 @@ for i in folders:
 		df2 = df.fillna(0)
 		df_list.append(df2)
 	all_data.append(pd.concat(df_list).reset_index())
-st.write(all_data)
-st.write(df_list)
+#st.write(all_data)
+#st.write(df_list)
 
 #button1=st.expander('See Data')
 #if button1:
@@ -65,7 +65,10 @@ else:
 				st.bokeh_chart(p, use_container_width=True)
 	
 	with tab2:
-		st.write('no')
+		for j in range(len(folders)):
+			for i in range(0,len(all_data[j])):
+				df1a=all_data[['La', 'Ce', 'Nd', 'Sm', 'Eu', 'Gd','Tb', 'Dy', 'Ho', 'Er', 'Tm', 'Yb']]
+				st.write(df1a)
 				
 		
 	with tab3:
