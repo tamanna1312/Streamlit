@@ -23,7 +23,8 @@ for i in folders:
 		df2 = df.fillna(0)
 		df_list.append(df2)
 	all_data.append(pd.concat(df_list).reset_index())
-#st.write(all_data)
+	f=pd.DataFrame(all_data)
+st.write(f)
 #st.write(df_list)
 
 #button1=st.expander('See Data')
@@ -68,7 +69,7 @@ else:
 		selected_columns=[['LA(PPM)','CE(PPM)','ND(PPM)','SM(PPM)','EU(PPM)','GD(PPM)','TB(PPM)','DY(PPM)','HO(PPM)','ER(PPM)','TM(PPM)','YB(PPM)','LU(PPM)']]
 		for j in range(len(folders)):
 			for i in range(0,len(all_data[j])):
-				df1a=all_data[j][i][selected_columns]
+				df1a=all_data[i][selected_columns]
 			st.write(df1a)
 				
 		
