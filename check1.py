@@ -5,7 +5,8 @@ import plotly.express as px
 import glob
 import folium
 from streamlit_folium import folium_static
-
+from bokeh.plotting import figure, show
+from bokeh.models import ColumnDataSource
 
 st.title('GEOROC DATA VISUALISER')
 st.text('The Georoc data contains major and trace element concentrations, radiogenic and nonradiogenic isotope ratios as well as analytical ages for whole rocks, glasses, minerals and inclusions. Metadata include geospatial and other sample information, for example latitude, longitude, type of eruption etc, analytical details and references.')
@@ -23,6 +24,8 @@ for i in folders:
 		df_list.append(df2)
 	all_data.append(pd.concat(df_list).reset_index())
 st.write(all_data)
+st.write(df_list)
+
 #button1=st.expander('See Data')
 #if button1:
 	#st.write(l2)
@@ -62,8 +65,10 @@ else:
 				st.bokeh_chart(p, use_container_width=True)
 	
 	with tab2:
-		st.write('I think these did not make too much sense - what did you want to show with these?')
-
+		for j in range(len(folders)):
+			for i in range(0,len(all_data[j])):
+				
+		
 	with tab3:
 		col1, col2 = st.columns([1,5])
 		with col1:
