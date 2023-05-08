@@ -66,7 +66,7 @@ else:
 	
 	with tab2:
 		for i in range(len(folders)):
-			df1a=all_data[i].iloc[0,119:132]
+			df1a=all_data[i].loc[0,119:132]
 		st.write(df1a)
 				
 		
