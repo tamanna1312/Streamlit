@@ -67,7 +67,7 @@ else:
 	with tab2:
 		for j in range(len(folders)):
 			for i in range(0,len(all_data[j])):
-				df1a=all_data[['La', 'Ce', 'Nd', 'Sm', 'Eu', 'Gd','Tb', 'Dy', 'Ho', 'Er', 'Tm', 'Yb']]
+				df1a=all_data[i][['La', 'Ce', 'Nd', 'Sm', 'Eu', 'Gd','Tb', 'Dy', 'Ho', 'Er', 'Tm', 'Yb']]
 				st.write(df1a)
 				
 		
