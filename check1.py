@@ -75,7 +75,7 @@ else:
 		colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
 		for j in range(len(folders)):
 			for i in range(0,len(all_data[j])):
-				a=all_data[j][subset_elements]
+				a=all_data[i][subset_elements]
 				for col in a:
 					p2.line(x='index',y=col,source=a,color=colours[j],line_width=2,legend_label=folders[j])
 		st.bokeh_chart(p2, use_container_width=True)
