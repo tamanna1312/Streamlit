@@ -66,10 +66,12 @@ else:
 	
 	with tab2:
 		subset_elements=all_data[0].columns.tolist()[119:133]
-		#x_labels=a.columns.tolist()
+		for i in range(len(list)):
+			a=all_data[i][subset_elements]
+		x_labels=a.columns.tolist()
 		#st.write(subset_elements)
 		p2= figure(
-		title='REE plot', x_axis_label="Element", y_axis_label="Abundance (ppm)")
+		title='REE plot',x_range=x_labels, x_axis_label="Element", y_axis_label="Abundance (ppm)")
 		colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
 		for j in range(len(folders)):
 			for i in range(0,len(all_data[j])):
