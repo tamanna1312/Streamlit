@@ -66,6 +66,7 @@ else:
 	
 	with tab2:
 		subset_elements=all_data[0].columns.tolist()[119:133]
+		x_labels=a.columns.tolist()
 		#st.write(subset_elements)
 		p2= figure(
 		title='REE plot',x_range=x_labels, x_axis_label="Element", y_axis_label="Abundance (ppm)")
