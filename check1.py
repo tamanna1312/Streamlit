@@ -65,11 +65,12 @@ else:
 				st.bokeh_chart(p, use_container_width=True)
 	
 	with tab2:
-		subset=all_data[['LA(PPM)','CE(PPM)','GD(PPM)']]
+		subset_elements=df_list[0].columns.tolist()[118:132]
+		st.write(subset_elements)
 		
 		#for i in range(len(folders)):
 			#df1a= all_data[i].iloc([119:132]
-		st.write(subset)
+		#st.write(subset)
 				
 		
 	with tab3:
