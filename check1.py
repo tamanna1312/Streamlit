@@ -65,7 +65,7 @@ else:
 				st.bokeh_chart(p, use_container_width=True)
 	
 	with tab2:
-		subset_elements=all_data[0].columns.tolist()[118:132]
+		subset_elements=df_list[0].columns.tolist()[118:132]
 		st.write(subset_elements)
 		#p = figure(
 		#title='REE plot',x_range=x_labels, x_axis_label="Element", y_axis_label="Abundance (ppm)")
