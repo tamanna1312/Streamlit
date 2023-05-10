@@ -66,7 +66,7 @@ else:
 	
 	with tab2:
 		subset_elements=all_data[0].columns.tolist()[119:133]
-		for i in range(len(list)):
+		for i in range(0,len(all_data)):
 			a=all_data[i][subset_elements]
 		x_labels=a.columns.tolist()
 		#st.write(subset_elements)
