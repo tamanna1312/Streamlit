@@ -81,7 +81,7 @@ else:
 			st.bokeh_chart(p2, use_container_width=True)
 		if sel_option == 'CI Normalised':
 			subset_elements=all_data[0].columns.tolist()[119:133]
-			norm_data=pd.read_csv(, sep=';',decimal=',')
+			norm_data=pd.read_csv('norm_data/*.csv', sep=';',decimal=',')
 			normdata=norm_data.loc[:, subset_elements]
 			for i in range(0,len(all_data)):
 				a=all_data[i][subset_elements]
@@ -99,7 +99,7 @@ else:
 			
 		else:
 			subset_elements=all_data[0].columns.tolist()[119:133]
-			norm_data=pd.read_csv(, sep=';',decimal=',')
+			norm_data=pd.read_csv('norm_data/*.csv', sep=';',decimal=',')
 			normdata=norm_data.loc[:, subset_elements]
 			for i in range(0,len(all_data)):
 				a=all_data[i][subset_elements]
