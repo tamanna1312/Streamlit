@@ -66,16 +66,17 @@ else:
 		for i in range(0,len(all_data)):
 			a=all_data[i][subset_elements]
 		x_labels=a.columns.tolist()
+		st.write(x_labels)
 		st.write(a)
-		# p2= figure(
-		# title='REE plot',x_range=x_labels, x_axis_label="Element", y_axis_label="Abundance (ppm)")
-		# colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
-		# for j in range(len(folders)):
-		# 	for i in range(0,len(all_data[j])):
-		# 		#a=all_data[i][subset_elements]
-		# 		for col in a:
-		# 			p2.line(x='index',y=col,source=a,color=colours[j],line_width=2,legend_label=folders[j])
-		# st.bokeh_chart(p2, use_container_width=True)
+		p2= figure(
+		title='REE plot',x_range=x_labels, x_axis_label="Element", y_axis_label="Abundance (ppm)")
+		colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
+		for j in range(len(folders)):
+			for i in range(0,len(all_data[j])):
+				#a=all_data[i][subset_elements]
+				for col in a:
+					p2.line(x='index',y=col,source=a,color=colours[j],line_width=2,legend_label=folders[j])
+		st.bokeh_chart(p2, use_container_width=True)
 
 	with tab3:
 		col1, col2 = st.columns([1,5])
