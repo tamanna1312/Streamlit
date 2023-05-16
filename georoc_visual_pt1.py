@@ -69,7 +69,7 @@ else:
 			for i in range(0,len(all_data)):
 				a=all_data[i][subset_elements]
 			x_labels=a.columns.tolist()
-			st.write(x_labels)
+			#st.write(x_labels)
 			p2= figure(
 			title='REE plot',x_range=x_labels, x_axis_label="Element", y_axis_label="Abundance (ppm)")
 			colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
@@ -83,6 +83,7 @@ else:
 			subset_elements=all_data[0].columns.tolist()[119:133]
 			norm_data=pd.read_csv('norm_data.csv', sep=';',decimal=',')
 			normdata=norm_data.loc[:, subset_elements]
+			st.write(normdata)
 			for i in range(0,len(all_data)):
 				a=all_data[i][subset_elements]
 			x_labels=a.columns.tolist()
@@ -91,7 +92,7 @@ else:
 			colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
 			for j in range(len(folders)):
 				for i in range(0,len(all_data[j])):
-					a=all_data[i][subset_elements]
+					#a=all_data[i][subset_elements]
 					final=a.div(normdata.iloc[0], axis=1)
 					for col in a:
 						p3.line(x='index',y=col,source=a,color=colours[j],line_width=2,legend_label=folders[j])
@@ -109,7 +110,7 @@ else:
 			colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
 			for j in range(len(folders)):
 				for i in range(0,len(all_data[j])):
-					a=all_data[i][subset_elements]
+					#a=all_data[i][subset_elements]
 					final=a.div(normdata.iloc[1], axis=1)
 					for col in a:
 						p4.line(x='index',y=col,source=a,color=colours[j],line_width=2,legend_label=folders[j])
