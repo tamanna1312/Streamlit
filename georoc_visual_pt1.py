@@ -37,7 +37,7 @@ if sel_vis == 'map':
 			folium.Marker(
 				location=[all_data[j].iloc[i]['LATITUDE'], all_data[j].iloc[i]['LONGITUDE']],
 				popup=all_data[j].iloc[i]['LOCATION'],
-			icon=folium.Icon(color=colours[j], icon='pushpin'),
+			icon=folium.Icon(color=colours[j]),
 		).add_to(map)
 
 	folium_static(map, width=700, height=450)
