@@ -66,18 +66,19 @@ else:
 		if sel_option == 'REE':
 			
 			subset_elements=all_data[0].columns.tolist()[119:133]
-			for i in range(0,len(all_data)):
-				a=all_data[i][subset_elements]
-			x_labels=a.columns.tolist()
+			#for i in range(0,len(all_data)):
+				#a=all_data[i][subset_elements]
+			#x_labels=a.columns.tolist()
 			#st.write(x_labels)
 			p2= figure(
-			title='REE plot',x_range=x_labels, x_axis_label="Element", y_axis_label="Abundance (ppm)")
+			title='REE plot', x_axis_label="Element", y_axis_label="Abundance (ppm)")
 			colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
 			for j in range(len(folders)):
-			#for i in range(0,len(all_data[j])):
-			#a=all_data[i][subset_elements]
+				for i in range(0,len(all_data[j])):
+					a=all_data[i][subset_elements]
 				for col in a:
 					p2.line(x='index',y=col,source=a,color=colours[j],line_width=2,legend_label=folders[j])
+			p2.x_range =a.columns.tolist()
 			st.bokeh_chart(p2, use_container_width=True)
 		if sel_option == 'CI Normalised':
 			subset_elements=all_data[0].columns.tolist()[119:133]
@@ -91,11 +92,9 @@ else:
 			title='REE plot',x_range=x_labels, x_axis_label="Element", y_axis_label="Abundance/CI (ppm)")
 			colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
 			for j in range(len(folders)):
-				for i in range(0,len(all_data[j])):
-					#a=all_data[i][subset_elements]
-					final=a.div(normdata.iloc[0], axis=1)
-					for col in a:
-						p3.line(x='index',y=col,source=a,color=colours[j],line_width=2,legend_label=folders[j])
+				final=a.div(normdata.iloc[0], axis=1)
+				for col in a:
+					p3.line(x='index',y=col,source=a,color=colours[j],line_width=2,legend_label=folders[j])
 			st.bokeh_chart(p3, use_container_width=True)
 			
 		else:
