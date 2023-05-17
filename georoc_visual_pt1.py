@@ -67,7 +67,7 @@ else:
 			
 			subset_elements=all_data[0].columns.tolist()[119:133]
 			#for j in range(len(folders)):
-			for i in range(0,len(all_data[j])):
+			for i in range(0,len(all_data)):
 				a=all_data[i][subset_elements]
 				
 			x_labels=a.columns.tolist()
