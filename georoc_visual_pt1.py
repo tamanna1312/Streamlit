@@ -71,7 +71,7 @@ else:
 				a=all_data[i][subset_elements]
 				
 			x_labels=a.columns.tolist()
-			#st.write(x_labels)
+			st.write(a)
 			p2= figure(
 			title='REE plot', x_range=x_labels, x_axis_label="Element", y_axis_label="Abundance (ppm)")
 			colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
