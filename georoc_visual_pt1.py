@@ -31,7 +31,7 @@ sel_vis = st.radio('Select Visualisation', ['map', 'plots'], horizontal=True)
 
 if sel_vis == 'map':
 	colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
-	map = folium.Map(location=[22, 87], zoom_start=5, control_scale=True,tiles = 'Stamen Terrain')
+	map = folium.Map(location=[22, 148], zoom_start=5, control_scale=True,tiles = 'Stamen Terrain')
 	for j in range(len(folders)):
 		for i in range(0,len(all_data[j])):
 			folium.Marker(
