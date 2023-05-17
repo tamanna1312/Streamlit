@@ -78,7 +78,6 @@ else:
 			#a=all_data[i][subset_elements]
 				for col in a:
 					p2.line(x='index',y=col,source=a,color=colours[j],line_width=2,legend_label=folders[j])
-			p2.x_range =a.columns.tolist()
 			st.bokeh_chart(p2, use_container_width=True)
 		if sel_option == 'CI Normalised':
 			subset_elements=all_data[0].columns.tolist()[119:133]
