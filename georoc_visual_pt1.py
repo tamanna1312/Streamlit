@@ -74,7 +74,7 @@ else:
 			p2= figure(
 			title='REE plot', x_range=x_labels, x_axis_label="Element", y_axis_label="Abundance (ppm)")
 			colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
-			for j in range(len((0,folders)):
+			for j in range(len(0,folders)):
 				for i in range(0,len(all_data[j])):
 					a=all_data[i][subset_elements]
 					for col in a:
