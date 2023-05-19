@@ -93,63 +93,56 @@ else:
 					st.bokeh_chart(p, use_container_width=True)
 
 		with tab2:
-			st.write('test')
 			sel_option = st.radio('Select Plot', ['REE', 'CI Normalised','CM Normalised'], horizontal=True)
-			if sel_option == 'REE':
-				
+			if sel_option == 'REE':	
 				subset_elements=st.session_state.all_data[0].columns.tolist()[119:133]
-				for i in range(0,len(st.session_state.all_data)):
-					a=st.session_state.all_data[i][subset_elements]	
-				x_labels=a.columns.tolist()
-				#st.write(a)
+				x_labels=subset_elements
 				p2= figure(
 				title='REE plot', x_range=x_labels, x_axis_label="Element", y_axis_label="Abundance (ppm)")
 				colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
 				for j in range(len(folders)):
-				#for i in range(0,len(st.session_state.all_data[j])):
-				#a=st.session_state.all_data[i][subset_elements]
+					a=st.session_state.all_data[j][subset_elements]
 					for col in a:
 						p2.line(x='index',y=col,source=a,color=colours[j],line_width=2,legend_label=folders[j])
+				x_labels=a.columns.tolist()
 				st.bokeh_chart(p2, use_container_width=True)
-			if sel_option == 'CI Normalised':
-				subset_elements=st.session_state.all_data[0].columns.tolist()[119:133]
-				norm_data=pd.read_csv('norm_data.csv', sep=';',decimal=',')
-				normdata=norm_data.loc[:, subset_elements]
-				st.write(normdata)
-				for i in range(0,len(st.session_state.all_data)):
-					a=st.session_state.all_data[i][subset_elements]
-				x_labels=a.columns.tolist()
-				p3= figure(
-				title='REE plot',x_range=x_labels, x_axis_label="Element", y_axis_label="Abundance/CI (ppm)")
-				colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
-				for j in range(len(folders)):
-					final=a.div(normdata.iloc[0], axis=1)
-					for col in a:
-						p3.line(x='index',y=col,source=a,color=colours[j],line_width=2,legend_label=folders[j])
-				st.bokeh_chart(p3, use_container_width=True)
-				
-			else:
-				subset_elements=st.session_state.all_data[0].columns.tolist()[119:133]
-				norm_data=pd.read_csv('norm_data.csv', sep=';',decimal=',')
-				normdata=norm_data.loc[:, subset_elements]
-				for i in range(0,len(st.session_state.all_data)):
-					a=st.session_state.all_data[i][subset_elements]
-				x_labels=a.columns.tolist()
-				p4= figure(
-				title='REE plot',x_range=x_labels, x_axis_label="Element", y_axis_label="Abundance/CM (ppm)")
-				colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
-				for j in range(len(folders)):
-					for i in range(0,len(st.session_state.all_data[j])):
-						#a=st.session_state.all_data[i][subset_elements]
-						final=a.div(normdata.iloc[1], axis=1)
-						for col in a:
-							p4.line(x='index',y=col,source=a,color=colours[j],line_width=2,legend_label=folders[j])
-				st.bokeh_chart(p4, use_container_width=True)
-				
-				
-				
-			
 
+		# 	if sel_option == 'CI Normalised':
+		# 		subset_elements=st.session_state.all_data[0].columns.tolist()[119:133]
+		# 		norm_data=pd.read_csv('norm_data.csv', sep=';',decimal=',')
+		# 		normdata=norm_data.loc[:, subset_elements]
+		# 		st.write(normdata)
+		# 		for i in range(0,len(st.session_state.all_data)):
+		# 			a=st.session_state.all_data[i][subset_elements]
+		# 		x_labels=a.columns.tolist()
+		# 		p3= figure(
+		# 		title='REE plot',x_range=x_labels, x_axis_label="Element", y_axis_label="Abundance/CI (ppm)")
+		# 		colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
+		# 		for j in range(len(folders)):
+		# 			final=a.div(normdata.iloc[0], axis=1)
+		# 			for col in a:
+		# 				p3.line(x='index',y=col,source=a,color=colours[j],line_width=2,legend_label=folders[j])
+		# 		st.bokeh_chart(p3, use_container_width=True)
+				
+		# 	else:
+		# 		subset_elements=st.session_state.all_data[0].columns.tolist()[119:133]
+		# 		norm_data=pd.read_csv('norm_data.csv', sep=';',decimal=',')
+		# 		normdata=norm_data.loc[:, subset_elements]
+		# 		for i in range(0,len(st.session_state.all_data)):
+		# 			a=st.session_state.all_data[i][subset_elements]
+		# 		x_labels=a.columns.tolist()
+		# 		p4= figure(
+		# 		title='REE plot',x_range=x_labels, x_axis_label="Element", y_axis_label="Abundance/CM (ppm)")
+		# 		colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
+		# 		for j in range(len(folders)):
+		# 			for i in range(0,len(st.session_state.all_data[j])):
+		# 				#a=st.session_state.all_data[i][subset_elements]
+		# 				final=a.div(normdata.iloc[1], axis=1)
+		# 				for col in a:
+		# 					p4.line(x='index',y=col,source=a,color=colours[j],line_width=2,legend_label=folders[j])
+		# 		st.bokeh_chart(p4, use_container_width=True)
+				
+				
 		with tab3:
 			col1, col2 = st.columns([1,5])
 			with col1:
