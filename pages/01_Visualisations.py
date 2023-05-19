@@ -71,95 +71,98 @@ if sel_vis == 'map':
 		folium_static(map, width=700, height=450)
 
 else:
-	st.write('test')
-	colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
-	tab1, tab2, tab3 = st.tabs(['scatter', 'category', 'ternary'])
+	if st.session_state.all_data is None:
+		st.write('No data loaded')
+	else:
+		colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
+		tab1, tab2, tab3 = st.tabs(['scatter', 'category', 'ternary'])
 
-	with tab1:
-		col1, col2 = st.columns([1,5])
-		with col1:
-			x = st.selectbox('x-axis', st.session_state.all_data[0].columns.tolist()[28:146])
-			y = st.selectbox('y-axis', st.session_state.all_data[0].columns.tolist()[28:146], index = 9)
-		with col2:
-				p = figure(
-				title='scatter plot',
-				x_axis_label=x,
-				y_axis_label=y)
+		with tab1:
+			col1, col2 = st.columns([1,5])
+			with col1:
+				x = st.selectbox('x-axis', st.session_state.all_data[0].columns.tolist()[28:146])
+				y = st.selectbox('y-axis', st.session_state.all_data[0].columns.tolist()[28:146], index = 9)
+			with col2:
+					p = figure(
+					title='scatter plot',
+					x_axis_label=x,
+					y_axis_label=y)
 
-				for i in range(len(folders)):
-					p.scatter(st.session_state.all_data[i][x], st.session_state.all_data[i][y], legend_label=folders[i], line_width=2,color=colours[i])
-				st.bokeh_chart(p, use_container_width=True)
+					for i in range(len(folders)):
+						p.scatter(st.session_state.all_data[i][x], st.session_state.all_data[i][y], legend_label=folders[i], line_width=2,color=colours[i])
+					st.bokeh_chart(p, use_container_width=True)
 
-	# with tab2:
-	# 	sel_option = st.radio('Select Plot', ['REE', 'CI Normalised','CM Normalised'], horizontal=True)
-	# 	if sel_option == 'REE':
+		with tab2:
+			st.write('test')
+			sel_option = st.radio('Select Plot', ['REE', 'CI Normalised','CM Normalised'], horizontal=True)
+			if sel_option == 'REE':
+				
+				subset_elements=st.session_state.all_data[0].columns.tolist()[119:133]
+				for i in range(0,len(st.session_state.all_data)):
+					a=st.session_state.all_data[i][subset_elements]	
+				x_labels=a.columns.tolist()
+				#st.write(a)
+				p2= figure(
+				title='REE plot', x_range=x_labels, x_axis_label="Element", y_axis_label="Abundance (ppm)")
+				colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
+				for j in range(len(folders)):
+				#for i in range(0,len(st.session_state.all_data[j])):
+				#a=st.session_state.all_data[i][subset_elements]
+					for col in a:
+						p2.line(x='index',y=col,source=a,color=colours[j],line_width=2,legend_label=folders[j])
+				st.bokeh_chart(p2, use_container_width=True)
+			if sel_option == 'CI Normalised':
+				subset_elements=st.session_state.all_data[0].columns.tolist()[119:133]
+				norm_data=pd.read_csv('norm_data.csv', sep=';',decimal=',')
+				normdata=norm_data.loc[:, subset_elements]
+				st.write(normdata)
+				for i in range(0,len(st.session_state.all_data)):
+					a=st.session_state.all_data[i][subset_elements]
+				x_labels=a.columns.tolist()
+				p3= figure(
+				title='REE plot',x_range=x_labels, x_axis_label="Element", y_axis_label="Abundance/CI (ppm)")
+				colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
+				for j in range(len(folders)):
+					final=a.div(normdata.iloc[0], axis=1)
+					for col in a:
+						p3.line(x='index',y=col,source=a,color=colours[j],line_width=2,legend_label=folders[j])
+				st.bokeh_chart(p3, use_container_width=True)
+				
+			else:
+				subset_elements=st.session_state.all_data[0].columns.tolist()[119:133]
+				norm_data=pd.read_csv('norm_data.csv', sep=';',decimal=',')
+				normdata=norm_data.loc[:, subset_elements]
+				for i in range(0,len(st.session_state.all_data)):
+					a=st.session_state.all_data[i][subset_elements]
+				x_labels=a.columns.tolist()
+				p4= figure(
+				title='REE plot',x_range=x_labels, x_axis_label="Element", y_axis_label="Abundance/CM (ppm)")
+				colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
+				for j in range(len(folders)):
+					for i in range(0,len(st.session_state.all_data[j])):
+						#a=st.session_state.all_data[i][subset_elements]
+						final=a.div(normdata.iloc[1], axis=1)
+						for col in a:
+							p4.line(x='index',y=col,source=a,color=colours[j],line_width=2,legend_label=folders[j])
+				st.bokeh_chart(p4, use_container_width=True)
+				
+				
+				
 			
-	# 		subset_elements=st.session_state.all_data[0].columns.tolist()[119:133]
-	# 		for i in range(0,len(st.session_state.all_data)):
-	# 			a=st.session_state.all_data[i][subset_elements]	
-	# 		x_labels=a.columns.tolist()
-	# 		#st.write(a)
-	# 		p2= figure(
-	# 		title='REE plot', x_range=x_labels, x_axis_label="Element", y_axis_label="Abundance (ppm)")
-	# 		colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
-	# 		for j in range(len(folders)):
-	# 		#for i in range(0,len(st.session_state.all_data[j])):
-	# 		#a=st.session_state.all_data[i][subset_elements]
-	# 			for col in a:
-	# 				p2.line(x='index',y=col,source=a,color=colours[j],line_width=2,legend_label=folders[j])
-	# 		st.bokeh_chart(p2, use_container_width=True)
-	# 	if sel_option == 'CI Normalised':
-	# 		subset_elements=st.session_state.all_data[0].columns.tolist()[119:133]
-	# 		norm_data=pd.read_csv('norm_data.csv', sep=';',decimal=',')
-	# 		normdata=norm_data.loc[:, subset_elements]
-	# 		st.write(normdata)
-	# 		for i in range(0,len(st.session_state.all_data)):
-	# 			a=st.session_state.all_data[i][subset_elements]
-	# 		x_labels=a.columns.tolist()
-	# 		p3= figure(
-	# 		title='REE plot',x_range=x_labels, x_axis_label="Element", y_axis_label="Abundance/CI (ppm)")
-	# 		colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
-	# 		for j in range(len(folders)):
-	# 			final=a.div(normdata.iloc[0], axis=1)
-	# 			for col in a:
-	# 				p3.line(x='index',y=col,source=a,color=colours[j],line_width=2,legend_label=folders[j])
-	# 		st.bokeh_chart(p3, use_container_width=True)
-			
-	# 	else:
-	# 		subset_elements=st.session_state.all_data[0].columns.tolist()[119:133]
-	# 		norm_data=pd.read_csv('norm_data.csv', sep=';',decimal=',')
-	# 		normdata=norm_data.loc[:, subset_elements]
-	# 		for i in range(0,len(st.session_state.all_data)):
-	# 			a=st.session_state.all_data[i][subset_elements]
-	# 		x_labels=a.columns.tolist()
-	# 		p4= figure(
-	# 		title='REE plot',x_range=x_labels, x_axis_label="Element", y_axis_label="Abundance/CM (ppm)")
-	# 		colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
-	# 		for j in range(len(folders)):
-	# 			for i in range(0,len(st.session_state.all_data[j])):
-	# 				#a=st.session_state.all_data[i][subset_elements]
-	# 				final=a.div(normdata.iloc[1], axis=1)
-	# 				for col in a:
-	# 					p4.line(x='index',y=col,source=a,color=colours[j],line_width=2,legend_label=folders[j])
-	# 		st.bokeh_chart(p4, use_container_width=True)
-			
-			
-			
-		
 
-	# with tab3:
-	# 	col1, col2 = st.columns([1,5])
-	# 	with col1:
-	# 		tern_top = st.selectbox('top', st.session_state.all_data[0].columns.tolist()[28:146])
-	# 		tern_left = st.selectbox('left', st.session_state.all_data[0].columns.tolist()[28:146], index=9)
-	# 		tern_right = st.selectbox('right', st.session_state.all_data[0].columns.tolist()[28:146], index=3)
-	# 	with col2:
-	# 		tern_plot_data = []
-	# 		for i in range(len(st.session_state.all_data)):
-	# 			df_tmp = st.session_state.all_data[i]
-	# 			df_tmp['tectonic unit'] = pd.Series([folders[i]] * len(st.session_state.all_data[i]))
-	# 			tern_plot_data.append(df_tmp)
+		with tab3:
+			col1, col2 = st.columns([1,5])
+			with col1:
+				tern_top = st.selectbox('top', st.session_state.all_data[0].columns.tolist()[28:146])
+				tern_left = st.selectbox('left', st.session_state.all_data[0].columns.tolist()[28:146], index=9)
+				tern_right = st.selectbox('right', st.session_state.all_data[0].columns.tolist()[28:146], index=3)
+			with col2:
+				tern_plot_data = []
+				for i in range(len(st.session_state.all_data)):
+					df_tmp = st.session_state.all_data[i]
+					df_tmp['tectonic unit'] = pd.Series([folders[i]] * len(st.session_state.all_data[i]))
+					tern_plot_data.append(df_tmp)
 
-	# 		p=px.scatter_ternary(pd.concat(tern_plot_data), a=tern_top, b=tern_left, c=tern_right, color='tectonic unit')
+				p=px.scatter_ternary(pd.concat(tern_plot_data), a=tern_top, b=tern_left, c=tern_right, color='tectonic unit')
 
-	# 		st.plotly_chart(p, use_container_width=True)
+				st.plotly_chart(p, use_container_width=True)
