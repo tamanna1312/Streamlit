@@ -9,8 +9,6 @@ from streamlit_folium import folium_static
 from bokeh.plotting import figure, show
 from bokeh.models import ColumnDataSource
 
-st.session_state.all_data = None
-
 st.title('GEOROC DATA VISUALISER')
 st.text('The Georoc data contains major and trace element concentrations, radiogenic and nonradiogenic isotope ratios as well as analytical ages for whole rocks, glasses, minerals and inclusions. Metadata include geospatial and other sample information, for example latitude, longitude, type of eruption etc, analytical details and references.')
 st.header('Data Selection')
@@ -74,23 +72,23 @@ if sel_vis == 'map':
 
 else:
 	st.write('test')
-	# colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
-	# tab1, tab2, tab3 = st.tabs(['scatter', 'category', 'ternary'])
+	colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
+	tab1, tab2, tab3 = st.tabs(['scatter', 'category', 'ternary'])
 
-	# with tab1:
-	# 	col1, col2 = st.columns([1,5])
-	# 	with col1:
-	# 		x = st.selectbox('x-axis', st.session_state.all_data[0].columns.tolist()[28:146])
-	# 		y = st.selectbox('y-axis', st.session_state.all_data[0].columns.tolist()[28:146], index = 9)
-	# 	with col2:
-	# 			p = figure(
-	# 			title='scatter plot',
-	# 			x_axis_label=x,
-	# 			y_axis_label=y)
+	with tab1:
+		col1, col2 = st.columns([1,5])
+		with col1:
+			x = st.selectbox('x-axis', st.session_state.all_data[0].columns.tolist()[28:146])
+			y = st.selectbox('y-axis', st.session_state.all_data[0].columns.tolist()[28:146], index = 9)
+		with col2:
+				p = figure(
+				title='scatter plot',
+				x_axis_label=x,
+				y_axis_label=y)
 
-	# 			for i in range(len(folders)):
-	# 				p.scatter(st.session_state.all_data[i][x], st.session_state.all_data[i][y], legend_label=folders[i], line_width=2,color=colours[i])
-	# 			st.bokeh_chart(p, use_container_width=True)
+				for i in range(len(folders)):
+					p.scatter(st.session_state.all_data[i][x], st.session_state.all_data[i][y], legend_label=folders[i], line_width=2,color=colours[i])
+				st.bokeh_chart(p, use_container_width=True)
 
 	# with tab2:
 	# 	sel_option = st.radio('Select Plot', ['REE', 'CI Normalised','CM Normalised'], horizontal=True)
