@@ -102,19 +102,23 @@ else:
 			colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
 			norm_data=pd.read_csv('norm_data.csv', sep=';',decimal=',')
 			normdata=norm_data.loc[:, subset_elements]
-			for j in range(len(folders)):
-				a=st.session_state.all_data[j][subset_elements]
 			if sel_option == 'REE':
-				for col in a:
-					p2.line(x='index',y=col,source=a,color=colours[j],line_width=2,legend_label=folders[j])
+				for j in range(len(folders)):
+					a=st.session_state.all_data[j][subset_elements]
+					for col in a:
+						p2.line(x='index',y=col,source=a,color=colours[j],line_width=2,legend_label=folders[j])
 			if sel_option == 'CI Normalised':
-				final=a.div(normdata.iloc[0], axis=1)
-				for col in final:
-					p2.line(x='index',y=col,source=final,color=colours[j],line_width=2,legend_label=folders[j])
+				for j in range(len(folders)):
+					a=st.session_state.all_data[j][subset_elements]
+					final=a.div(normdata.iloc[0], axis=1)
+					for col in final:
+						p2.line(x='index',y=col,source=final,color=colours[j],line_width=2,legend_label=folders[j])
 			else:
-				final=a.div(normdata.iloc[1], axis=1)
-				for col in final:
-					p2.line(x='index',y=col,source=final,color=colours[j],line_width=2,legend_label=folders[j])
+				for j in range(len(folders)):
+					a=st.session_state.all_data[j][subset_elements]
+					final=a.div(normdata.iloc[1], axis=1)
+					for col in final:
+						p2.line(x='index',y=col,source=final,color=colours[j],line_width=2,legend_label=folders[j])
 			st.bokeh_chart(p2, use_container_width=True)
 			
 				
