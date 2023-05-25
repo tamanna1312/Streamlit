@@ -15,7 +15,7 @@ df_list1 = [pd.read_csv(file,encoding='ISO-8859-1') for file in craton_files]
 craton_data   = pd.concat(df_list1, ignore_index=True)
 st.write(craton_data)
 st.header('Loading Normalising Data')
-norm_data=pd.read_csv('C:\\Users\\PC Galena\\Downloads\\norm_data_copy.csv', sep=';',decimal=',')
+norm_data=pd.read_csv('norm_data.csv', sep=';',decimal=',')
 st.write(norm_data)
 
 st.header('Lookup Elements')
