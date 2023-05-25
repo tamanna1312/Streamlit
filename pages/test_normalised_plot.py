@@ -22,31 +22,19 @@ st.header('Lookup Elements')
 df=pd.read_csv('lookup_element_characteristics.csv', encoding='ISO-8859-1')
 st.write(df)
 select_options = st.radio('Select Plot Type', ['REE', 'HSE','VOLATILE(high)','VOLATILE'], horizontal=True)
-if select_options == 'REE':
-	ree=df.loc[df['REE'] == 1]
-	ree_selected=ree['ALL ELEMENTS']
-	st.write(ree_selected)
-	normdata=norm_data.loc[:,ree_selected]
-	georoc_data=craton_data.loc[:,ree_selected]
-	x_labels=ree_selected
-	p2= figure(
-	title='REE plot', x_range=x_labels, x_axis_label="Element", y_axis_label="Abundance (ppm)")
-	final=georoc_data.div(normdata.iloc[0], axis=1)
-	for col in final:
-		p2.line(x='index',y=col,source=final,color='blue',line_width=2)
-	st.bokeh_chart(p2, use_container_width=True)
-if select_options == 'HSE':
-	hse=df.loc[df['HSE'] == 1]
-	hse_selected=hse['ALL ELEMENTS']
-	st.write(hse_selected)
-if select_options == 'VOLATILE(high)':
-	vol_high=df.loc[df['VOLATILE(high)'] == 1]
-	vol_high_selected=vol_high['ALL ELEMENTS']
-	st.write(vol_high_selected)
-if select_options == 'VOLATILE':
-	vol=df.loc[df['VOLATILE'] == 1]
-	vol_selected=vol['ALL ELEMENTS']
-	st.write(vol_selected)
+
+selected_elements=df.loc[df[select_options] == 1]
+ree_selected=selected_elements['ALL ELEMENTS']
+st.write(selected_elements)
+normdata=norm_data.loc[:,ree_selected]
+georoc_data=georoc_file.loc[:,ree_selected]
+x_labels=ree_selected
+p2= figure(
+title=select_options, x_range=x_labels, x_axis_label="Element", y_axis_label="Abundance (ppm)")
+final=georoc_data.div(normdata.iloc[0], axis=1)
+for col in final:
+	p2.line(x='index',y=col,source=final,color='blue',line_width=2)
+st.bokeh_chart(p2, use_container_width=True)
 
 
 
