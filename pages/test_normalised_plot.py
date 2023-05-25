@@ -27,7 +27,7 @@ selected_elements=df.loc[df[select_options] == 1]
 ree_selected=selected_elements['ALL ELEMENTS']
 st.write(selected_elements)
 normdata=norm_data.loc[:,ree_selected]
-georoc_data=georoc_file.loc[:,ree_selected]
+georoc_data=craton_files.loc[:,ree_selected]
 x_labels=ree_selected
 p2= figure(
 title=select_options, x_range=x_labels, x_axis_label="Element", y_axis_label="Abundance (ppm)")
