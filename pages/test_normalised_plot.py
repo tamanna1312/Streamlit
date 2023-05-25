@@ -7,16 +7,13 @@ import matplotlib.pyplot as plt
 import altair as alt
 import glob
 
+
+st.title('Normalised Plot Testing')
+st.header('Loading GEOROC Data')
 craton_files = glob.glob('Cratons/*.csv')
 df_list1 = [pd.read_csv(file,encoding='ISO-8859-1') for file in craton_files]
 craton_data   = pd.concat(df_list1, ignore_index=True)
 st.write(craton_data)
-
-st.title('Normalised Plot Testing')
-st.header('Loading GEOROC Data')
-#georoc=pd.read_csv(Cratons/2023-03-1KRR1P_BUNDELKHAND_CRATON.csv, encoding='ISO-8859-1')
-#georoc_file=georoc.fillna(0)
-#st.write(georoc_file)
 st.header('Loading Normalising Data')
 norm_data=pd.read_csv('C:\\Users\\PC Galena\\Downloads\\norm_data_copy.csv', sep=';',decimal=',')
 st.write(norm_data)
