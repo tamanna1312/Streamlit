@@ -7,7 +7,7 @@ import plotly.express as px
 st.title('Normalised Plot Testing')
 st.header('Loading GEOROC Data')
 georoc=pd.read_csv('Cratons/2023-03-1KRR1P_BUNDELKHAND_CRATON.csv', encoding='ISO-8859-1')
-
+georoc.rename({'V(PPM)':'V', 'SC(PPM)':'Sc'})
 st.write(georoc)
 georoc_file=georoc.fillna(0)
 st.write(georoc_file)
@@ -17,7 +17,7 @@ st.write(norm_data)
 
 st.header('Lookup Elements')
 df=pd.read_csv("lookup_element_characteristics.csv", encoding='ISO-8859-1')
-df.rename({'V(PPM)':'V', 'SC(PPM)':'Sc'})
+
 #st.write(df)
 select_options = st.radio('Select Plot Type', ['REE', 'HSE','VOLATILE(high)','VOLATILE'], horizontal=True)
 
