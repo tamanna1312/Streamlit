@@ -5,24 +5,10 @@ from bokeh.plotting import figure
 import plotly.express as px
 
 
-with st.form('data'):
-	folders = st.multiselect('Select Tectonic Unit(s)', ['Cratons', 'CFBs', 'Rift Volcanics', 'Oceanic Plateaus', 'OceanBasinFlood Basalts','Complex Volcanic Settings','Convergent Margins'], ['Cratons'])
-	data_form_submitted = st.form_submit_button("load selected data")
-	if data_form_submitted:
-		st.session_state.all_data = []
-		for i in folders:
-			files = glob.glob(i+'/*.csv')
-			df_list = []
-			for file in files:
-				df = pd.read_csv(file,encoding='ISO-8859-1')
-				df.rename(columns={'LATITUDE MAX': 'LATITUDE', 'LONGITUDE MAX': 'LONGITUDE'}, inplace=True)
-				df2 = df.fillna(0)
-				if len(df2) < 20:
-					df_list.append(df2.sample(len(df2)))
-				else:
-					df_list.append(df2.sample(20))
-			st.session_state.all_data.append(pd.concat(df_list).reset_index())
-		
+craton_files = glob.glob('Cratons/*.csv')
+df_list1 = [pd.read_csv(file,encoding='ISO-8859-1') for file in craton_files]
+craton_data   = pd.concat(df_list1, ignore_index=True)
+st.write(craton_data)
 
 st.title('Normalised Plot Testing')
 st.header('Loading GEOROC Data')
