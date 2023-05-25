@@ -37,15 +37,15 @@ if select_options == 'REE':
 	st.bokeh_chart(p2, use_container_width=True)
 if select_options == 'HSE':
 	hse=df.loc[df['HSE'] == 1]
-	hse_selected=hse['ALL ELEMENTS'].tolist()
+	hse_selected=hse['ALL ELEMENTS']
 	st.write(hse_selected)
 if select_options == 'VOLATILE(high)':
 	vol_high=df.loc[df['VOLATILE(high)'] == 1]
-	vol_high_selected=vol_high['ALL ELEMENTS'].tolist()
+	vol_high_selected=vol_high['ALL ELEMENTS']
 	st.write(vol_high_selected)
 if select_options == 'VOLATILE':
 	vol=df.loc[df['VOLATILE'] == 1]
-	vol_selected=vol['ALL ELEMENTS'].tolist()
+	vol_selected=vol['ALL ELEMENTS']
 	st.write(vol_selected)
 
 
