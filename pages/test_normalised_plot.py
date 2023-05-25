@@ -27,7 +27,7 @@ if select_options == 'REE':
 	ree_selected=ree['ALL ELEMENTS']
 	st.write(ree_selected)
 	normdata=norm_data.loc[:,ree_selected]
-	georoc_data=georoc_file.loc[:,ree_selected]
+	georoc_data=craton_data.loc[:,ree_selected]
 	x_labels=ree_selected
 	p2= figure(
 	title='REE plot', x_range=x_labels, x_axis_label="Element", y_axis_label="Abundance (ppm)")
