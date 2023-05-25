@@ -1,9 +1,11 @@
 import streamlit as st
 import pandas as pd
-import random
 from bokeh.plotting import figure
 import plotly.express as px
-
+import seaborn as sns
+import matplotlib.pyplot as plt
+import altair as alt
+import glob
 
 craton_files = glob.glob('Cratons/*.csv')
 df_list1 = [pd.read_csv(file,encoding='ISO-8859-1') for file in craton_files]
