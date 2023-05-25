@@ -8,7 +8,7 @@ st.title('Normalised Plot Testing')
 st.header('Loading GEOROC Data')
 georoc=pd.read_csv('Cratons/2023-03-1KRR1P_BUNDELKHAND_CRATON.csv', encoding='ISO-8859-1')
 st.write(georoc)
-""" georoc_file=georoc.fillna(0)
+georoc_file=georoc.fillna(0)
 st.write(georoc_file)
 st.header('Loading Normalising Data')
 norm_data=pd.read_csv('norm_data_copy.csv', sep=';',decimal=',')
@@ -31,7 +31,7 @@ final=georoc_data.div(normdata.iloc[0], axis=1)
 for col in final:
 	p2.line(x='index',y=col,source=final,color='blue',line_width=2)
 st.bokeh_chart(p2, use_container_width=True)
- """
+
 
 
 
