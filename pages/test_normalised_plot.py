@@ -22,6 +22,7 @@ with st.form('data'):
 				else:
 					df_list.append(df2.sample(20))
 			st.session_state.all_data.append(pd.concat(df_list).reset_index())
+		
 
 st.title('Normalised Plot Testing')
 st.header('Loading GEOROC Data')
