@@ -19,8 +19,8 @@ norm_data=pd.read_csv('norm_data.csv', sep=';',decimal=',')
 st.write(norm_data)
 
 st.header('Lookup Elements')
-df=pd.read_csv("C:\\Users\\PC Galena\\Downloads\\lookup_element_characteristics.csv", encoding='ISO-8859-1')
-#st.write(df)
+df=pd.read_csv('lookup_element_characteristics.csv', encoding='ISO-8859-1')
+st.write(df)
 select_options = st.radio('Select Plot Type', ['REE', 'HSE','VOLATILE(high)','VOLATILE'], horizontal=True)
 if select_options == 'REE':
 	ree=df.loc[df['REE'] == 1]
