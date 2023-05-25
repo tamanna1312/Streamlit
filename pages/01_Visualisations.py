@@ -61,13 +61,14 @@ if sel_vis == 'map':
 	else:
 		colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
 		map = folium.Map(location=[34, 100], zoom_start=5, control_scale=True,tiles = 'Stamen Terrain')
+		marker_cluster = plugins.MarkerCluster().add_to(map)
 		for j in range(len(folders)):
 			for i in range(0,len(st.session_state.all_data[j])):
 				folium.Marker(
 					location=[st.session_state.all_data[j].iloc[i]['LATITUDE'], st.session_state.all_data[j].iloc[i]['LONGITUDE']],
 					popup=st.session_state.all_data[j].iloc[i]['LOCATION'],
 				icon=folium.Icon(color=colours[j]),
-			).add_to(map)
+			).add_to(marker_cluster)
 
 		folium_static(map, width=700, height=450)
 
