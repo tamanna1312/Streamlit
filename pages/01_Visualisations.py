@@ -49,7 +49,7 @@ with st.form('data'):
 		       'FEOT(WT%)':'FeOT(wt%)', 'CAO(WT%)': 'CaO(wt%)', 'MGO(WT%)':'MgO(wt%)', 'MNO(WT%)':'MnO(wt%)', 'NIO(WT%)':'NiO(wt%)', 'K2O(WT%)':'K2O(wt%)',
 		    	'NA2O(WT%)': 'Na2O(wt%)', 'P2O5(WT%)':'P2O5(wt%)', 'H2O(WT%)':'H2O(wt%)', 'F(WT%)':'F(wt%)', 'CL(WT%)':'Cl(wt%)', 'LI(PPM)':'Li', 'B(PPM)':'B',
 			    'BE(PPM)':'Be', 'C(PPM)':'C', 'CO2(PPM)':'CO2', 'F(PPM)':'F', 'NA(PPM)':'Na', 'MG(PPM)':'Mg', 'AL(PPM)':'Al', 'P(PPM)':'P', 'S(PPM)':'S',
-			    'CL(PPM)':'Cl', 'K(PPM)':'K', 'CA(PPM)':'Ca', 'SC(PPM)':'Sc', 'TI(PPM)':'Ti', 'V(PPM)';'V', 'CR(PPM)':'Cr', 'MN(PPM)':'Mn', 'FE(PPM)':'Fe',
+			    'CL(PPM)':'Cl', 'K(PPM)':'K', 'CA(PPM)':'Ca', 'SC(PPM)':'Sc', 'TI(PPM)':'Ti', 'V(PPM)':'V', 'CR(PPM)':'Cr', 'MN(PPM)':'Mn', 'FE(PPM)':'Fe',
 			    'CO(PPM)':'Co', 'NI(PPM)':'Ni', 'CU(PPM)':'Cu', 'ZN(PPM)':'Zn', 'GA(PPM)':'Ga', 'GE(PPM)':'Ge', 'AS(PPM)':'As', 'SE(PPM)':'Se', 'BR(PPM)':'Br',
 			    'RB(PPM)':'Rb',  'SR(PPM)': 'Sr',  'Y(PPM)': 'Y', 'ZR(PPM)':'Zr', 'NB(PPM)':'Nb', 'MO(PPM)':'Mo', 'RU(PPM)':'Ru', 'RH(PPM)':'Rh', 'PD(PPM)':'Pd',
 			    'AG(PPM)':'Ag', 'CD(PPM)':'Cd', 'IN(PPM)':'In', 'SN(PPM)':'Sn', 'SB(PPM)':'Sb', 'TE(PPM)':'Te', 'I(PPM)':'I', 'CS(PPM)':'Cs', 'BA(PPM)':'Ba', 
