@@ -7,7 +7,7 @@ import plotly.express as px
 st.title('Normalised Plot Testing')
 st.header('Loading GEOROC Data')
 georoc=pd.read_csv('Cratons/2023-03-1KRR1P_BUNDELKHAND_CRATON.csv', encoding='ISO-8859-1')
-st.write(georoc.columns.tolist())
+#st.write(georoc.columns.tolist())
 georoc.rename(columns={'V(PPM)':'V', 'SC(PPM)':'Sc'},inplace=True)
 
 st.write(georoc)
