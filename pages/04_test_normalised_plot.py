@@ -18,7 +18,7 @@ norm_data=pd.read_csv('norm_data_copy.csv', sep=';',decimal=',')
 st.write(norm_data)
 
 st.header('Lookup Elements')
-df=pd.read_csv("LOOKUP_ELEMENTS_CHARACTERISTICS.csv", encoding='ISO-8859-1')
+df=pd.read_csv("LOOKUP_ELEMENTS_CHARACTERISTICS.csv", encoding='ISO-8859-1',sep=';',decimal=',')
 st.write(df)
 
 #st.write(df)
