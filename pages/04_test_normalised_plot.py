@@ -25,7 +25,7 @@ st.write(df)
 select_options = st.radio('Select Plot Type', ['REE', 'HSE','VOLATILE(high)','VOLATILE'], horizontal=True)
 
 selected_elements=df.loc[df[select_options] == 1]
-ree_selected=selected_elements['ALL ELEMENTS']
+ree_selected=selected_elements['Element']
 st.write(selected_elements)
 normdata=norm_data.loc[:,ree_selected]
 georoc_data=georoc_file.loc[:,ree_selected]
