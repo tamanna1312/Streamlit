@@ -101,6 +101,7 @@ else:
 					title='scatter plot',
 					x_axis_label=x,
 					y_axis_label=y)
+					p.y_range = Range1d(0, 20)
 
 					for i in range(len(folders)):
 						p.scatter(st.session_state.all_data[i][x], st.session_state.all_data[i][y], legend_label=folders[i], line_width=2,color=colours[i])
@@ -113,6 +114,7 @@ else:
 			p2= figure(
 			title='REE plot', x_range=x_labels, x_axis_label="Element", y_axis_label="Abundance (ppm)")
 			colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
+			p2.y_range = Range1d(0, 100)
 			norm_data=pd.read_csv('norm_data.csv', sep=';',decimal=',')
 			normdata=norm_data.loc[:, subset_elements]
 			if sel_option == 'REE':
