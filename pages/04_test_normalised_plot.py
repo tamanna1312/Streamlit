@@ -36,12 +36,12 @@ st.write(df)
 #st.write(df)
 select_options = st.radio('Select Plot Type', ['REE', 'HSE','VOLATILE(high)','VOLATILE'], horizontal=True)
 
-selected_elements=df.loc[df[select_options] == 1]
-ree_selected=selected_elements['Element']
+selected_plot=df.loc[df[select_options] == 1]
+selected_elements=selected_plot['Element']
 st.write(selected_elements)
-normdata=norm_data.loc[:,ree_selected]
-georoc_data=georoc_file.loc[:,ree_selected]
-x_labels=ree_selected
+normdata=norm_data.loc[:,selected_elements]
+georoc_data=georoc_file.loc[:,selected_elements]
+x_labels=selected_elements
 p2= figure(
 title=select_options, x_range=x_labels, x_axis_label="Element", y_axis_label="Abundance (ppm)")
 final=georoc_data.div(normdata.iloc[0], axis=1)
