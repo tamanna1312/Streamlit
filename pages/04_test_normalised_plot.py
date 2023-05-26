@@ -3,6 +3,7 @@ import pandas as pd
 import random
 from bokeh.plotting import figure
 import plotly.express as px
+from bokeh.models import Range1d
 
 st.title('Normalised Plot Testing')
 st.header('Loading GEOROC Data')
@@ -44,6 +45,7 @@ georoc_data=georoc_file.loc[:,selected_elements]
 x_labels=selected_elements
 p2= figure(
 title=select_options, x_range=x_labels, x_axis_label="Element", y_axis_label="Abundance/CI (ppm)")
+p2.y_range = Range1d(0, 100)
 final=georoc_data.div(normdata.iloc[0], axis=1)
 for col in final:
 	p2.line(x='index',y=col,source=final,color='blue',line_width=2)
