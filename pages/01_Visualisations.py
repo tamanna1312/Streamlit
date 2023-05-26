@@ -46,10 +46,10 @@ with st.form('data'):
 				df = pd.read_csv(file,encoding='ISO-8859-1')
 				df.rename(columns={'LATITUDE MAX': 'LATITUDE', 'LONGITUDE MAX': 'LONGITUDE'}, inplace=True)
 				df2 = df.fillna(0)
-				if len(df2) < 40:
+				if len(df2) < 20:
 					df_list.append(df2.sample(len(df2)))
 				else:
-					df_list.append(df2.sample(40))
+					df_list.append(df2.sample(20))
 			st.session_state.all_data.append(pd.concat(df_list).reset_index())
 
 
