@@ -43,7 +43,7 @@ normdata=norm_data.loc[:,selected_elements]
 georoc_data=georoc_file.loc[:,selected_elements]
 x_labels=selected_elements
 p2= figure(
-title=select_options, x_range=x_labels, x_axis_label="Element", y_axis_label="Abundance (ppm)")
+title=select_options, x_range=x_labels, x_axis_label="Element", y_axis_label="Abundance/CI (ppm)")
 final=georoc_data.div(normdata.iloc[0], axis=1)
 for col in final:
 	p2.line(x='index',y=col,source=final,color='blue',line_width=2)
