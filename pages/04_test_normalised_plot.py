@@ -78,7 +78,7 @@ p2= figure(
 title=select_options, x_range=x_labels, x_axis_label="Element", y_axis_label="Abundance/CI (ppm)")
 p2.y_range = Range1d(0, 500)
 select_normalising=st.radio('Select Normalising', ['CI','CH','CM'])
-if select_normalising==CI:
+if select_normalising=='CI':
 	for j in range(len(folders)):
 		a=st.session_state.all_data[j][selected_elements]
 		final=a.div(normdata.iloc[0], axis=1)
