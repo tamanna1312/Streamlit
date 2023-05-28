@@ -74,7 +74,7 @@ st.write(selected_elements)
 normdata=norm_data.loc[:,selected_elements]
 for j in range(len(folders)):
  	a=st.session_state.all_data[j][selected_elements]
-	st.write(a)
+st.write(a)
 georoc_data=georoc_file.loc[:,selected_elements]
 select_normalising=st.radio
 x_labels=selected_elements
