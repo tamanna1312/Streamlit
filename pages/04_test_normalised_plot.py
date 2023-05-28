@@ -61,10 +61,8 @@ st.header('Loading Normalising Data')
 norm_data=pd.read_csv('norm_data_copy.csv', sep=';',decimal=',')
 st.write(norm_data)
 
-st.header('Lookup Elements')
+#st.header('Lookup Elements')
 df=pd.read_csv("LOOKUP_ELEMENTS_CHARACTERISTICS.csv", encoding='ISO-8859-1',sep=';',decimal=',')
-st.write(df)
-
 #st.write(df)
 select_options = st.radio('Select Plot Type', ['REE', 'HSE','VOLATILE(high)','VOLATILE'], horizontal=True)
 
@@ -72,19 +70,17 @@ selected_plot=df.loc[df[select_options] == 1]
 selected_elements=selected_plot['Element']
 st.write(selected_elements)
 normdata=norm_data.loc[:,selected_elements]
-for j in range(len(folders)):
- 	a=st.session_state.all_data[j][selected_elements]
-st.write(a)
-georoc_data=georoc_file.loc[:,selected_elements]
-select_normalising=st.radio
+
 x_labels=selected_elements
 colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
 p2= figure(
 title=select_options, x_range=x_labels, x_axis_label="Element", y_axis_label="Abundance/CI (ppm)")
 p2.y_range = Range1d(0, 200)
-final=georoc_data.div(normdata.iloc[0], axis=1)
-for col in final:
-	p2.line(x='index',y=col,source=final,color='blue',line_width=2)
+for j in range(len(folders)):
+ 	a=st.session_state.all_data[j][selected_elements]
+	final=a.div(normdata.iloc[0], axis=1)
+	for col in final:
+		p2.line(x='index',y=col,source=final,color='blue',line_width=2)
 st.bokeh_chart(p2, use_container_width=True)
 
 
