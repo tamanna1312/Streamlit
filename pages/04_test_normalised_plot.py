@@ -75,7 +75,7 @@ x_labels=selected_elements
 colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
 
 p2= figure(
-title=select_options, x_range=x_labels, x_axis_label="Element", y_axis_label="Abundance/CI (ppm)")
+title=select_options, x_range=x_labels, x_axis_label="Element", )
 p2.y_range = Range1d(0, 500)
 select_normalising=st.radio('Select Normalising', ['CI','CH','CM'])
 if select_normalising=='CI':
@@ -83,7 +83,7 @@ if select_normalising=='CI':
 		a=st.session_state.all_data[j][selected_elements]
 		CI_Norm=a.div(normdata.iloc[0], axis=1)
 		for col in final:
-			p2.line(x='index',y=col,source=CI_Norm,color=colours[j],line_width=2,legend_label=folders[j])
+			p2.line(x='index',y=col,source=CI_Norm,color=colours[j],line_width=2,legend_label=folders[j],y_axis_label="Abundance/CI (ppm)")
 if select_normalising=='CH':
 	for j in range(len(folders)):
 		a=st.session_state.all_data[j][selected_elements]
