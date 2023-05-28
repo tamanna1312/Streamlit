@@ -73,12 +73,10 @@ normdata=norm_data.loc[:,selected_elements]
 
 x_labels=selected_elements
 colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
-
-p2= figure(
-title=select_options, x_range=x_labels, x_axis_label="Element", )
-p2.y_range = Range1d(0, 500)
 select_normalising=st.radio('Select Normalising', ['CI','CH','CM'])
-p2.y_axis_label=select_normalising
+p2= figure(
+title=select_options, x_range=x_labels, x_axis_label="Element",y_axis_label=select_normalising )
+p2.y_range = Range1d(0, 500)
 if select_normalising=='CI':
 	for j in range(len(folders)):
 		a=st.session_state.all_data[j][selected_elements]
