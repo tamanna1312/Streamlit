@@ -75,7 +75,7 @@ x_labels=selected_elements
 colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
 p2= figure(
 title=select_options, x_range=x_labels, x_axis_label="Element", y_axis_label="Abundance/CI (ppm)")
-p2.y_range = Range1d(0, 400)
+p2.y_range = Range1d(0, 500)
 for j in range(len(folders)):
 	a=st.session_state.all_data[j][selected_elements]
 	final=a.div(normdata.iloc[0], axis=1)
