@@ -73,6 +73,7 @@ normdata=norm_data.loc[:,selected_elements]
 
 x_labels=selected_elements
 colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
+select_normalising=st.radio('Select Normalising', ['CI','CH','CM'])
 p2= figure(
 title=select_options, x_range=x_labels, x_axis_label="Element", y_axis_label="Abundance/CI (ppm)")
 p2.y_range = Range1d(0, 500)
