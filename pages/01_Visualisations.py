@@ -114,15 +114,13 @@ else:
 			st.write(norm_data)
 			df=pd.read_csv("LOOKUP_ELEMENTS_CHARACTERISTICS.csv", encoding='ISO-8859-1',sep=';',decimal=',')
 			select_options = st.radio('Select Plot Type', ['REE', 'HSE','VOLATILE(high)','VOLATILE'], horizontal=True)
-
 			selected_plot=df.loc[df[select_options] == 1]
 			selected_elements=selected_plot['Element']
 			st.write(selected_elements)
 			normdata=norm_data.loc[:,selected_elements]
-
 			x_labels=selected_elements
 			colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
-			select_normalising=st.radio('Select Normalising', ['CI','CH','CM'])
+			select_normalising=st.radio('Select Normalising Option', ['CI','CH','CM'])
 			p2= figure(
 			title=select_options, x_range=x_labels, x_axis_label="Element",y_axis_label=select_normalising )
 			p2.y_range = Range1d(0, 500)
@@ -138,7 +136,12 @@ else:
 					CH_Norm=a.div(normdata.iloc[1], axis=1)
 					for col in CH_Norm:
 						p2.line(x='index',y=col,source=CH_Norm,color=colours[j],line_width=2,legend_label=folders[j])
-
+			if select_normalising=='CM':
+				for j in range(len(folders)):
+					a=st.session_state.all_data[j][selected_elements]
+					CM_Norm=a.div(normdata.iloc[2], axis=1)
+					for col in CH_Norm:
+						p2.line(x='index',y=col,source=CH_Norm,color=colours[j],line_width=2,legend_label=folders[j])
 			st.bokeh_chart(p2, use_container_width=True)
 
 
