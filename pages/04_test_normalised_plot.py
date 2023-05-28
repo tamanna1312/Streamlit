@@ -82,13 +82,13 @@ if select_normalising=='CI':
 	for j in range(len(folders)):
 		a=st.session_state.all_data[j][selected_elements]
 		CI_Norm=a.div(normdata.iloc[0], axis=1)
-		for col in final:
+		for col in CI_Norm:
 			p2.line(x='index',y=col,source=CI_Norm,color=colours[j],line_width=2,legend_label=folders[j],y_axis_label="Abundance/CI (ppm)")
 if select_normalising=='CH':
 	for j in range(len(folders)):
 		a=st.session_state.all_data[j][selected_elements]
 		CH_Norm=a.div(normdata.iloc[1], axis=1)
-		for col in final:
+		for col in CH_Norm:
 			p2.line(x='index',y=col,source=CH_Norm,color=colours[j],line_width=2,legend_label=folders[j])
 
 	st.bokeh_chart(p2, use_container_width=True)
