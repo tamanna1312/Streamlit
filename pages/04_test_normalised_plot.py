@@ -77,7 +77,7 @@ p2= figure(
 title=select_options, x_range=x_labels, x_axis_label="Element", y_axis_label="Abundance/CI (ppm)")
 p2.y_range = Range1d(0, 200)
 for j in range(len(folders)):
- 	a=st.session_state.all_data[j][selected_elements]
+	a=st.session_state.all_data[j][selected_elements]
 	final=a.div(normdata.iloc[0], axis=1)
 	for col in final:
 		p2.line(x='index',y=col,source=final,color='blue',line_width=2)
