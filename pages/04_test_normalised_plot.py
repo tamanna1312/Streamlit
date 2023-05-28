@@ -80,7 +80,7 @@ for j in range(len(folders)):
 	a=st.session_state.all_data[j][selected_elements]
 	final=a.div(normdata.iloc[0], axis=1)
 	for col in final:
-		p2.line(x='index',y=col,source=final,color=colours[j],line_width=2)
+		p2.line(x='index',y=col,source=final,color=colours[j],line_width=2,legend_label=folders[j])
 st.bokeh_chart(p2, use_container_width=True)
 
 
