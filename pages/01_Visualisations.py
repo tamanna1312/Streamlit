@@ -127,56 +127,18 @@ else:
 			for j in range(len(folders)):
 					a=st.session_state.all_data[j][selected_elements]
 					if select_normalising=='CI':
-				# for j in range(len(folders)):
-				# 	a=st.session_state.all_data[j][selected_elements]
 						CI_Norm=a.div(normdata.iloc[0], axis=1)
 						for col in CI_Norm:
 							p2.line(x='index',y=col,source=CI_Norm,color=colours[j],line_width=2,legend_label=folders[j])
 					if select_normalising=='CH':
-				# for j in range(len(folders)):
-				# 	a=st.session_state.all_data[j][selected_elements]
 						CH_Norm=a.div(normdata.iloc[1], axis=1)
 						for col in CH_Norm:
 							p2.line(x='index',y=col,source=CH_Norm,color=colours[j],line_width=2,legend_label=folders[j])
 					if select_normalising=='CM':
-				# for j in range(len(folders)):
-				# 	a=st.session_state.all_data[j][selected_elements]
 						CM_Norm=a.div(normdata.iloc[2], axis=1)
 						for col in CH_Norm:
 							p2.line(x='index',y=col,source=CH_Norm,color=colours[j],line_width=2,legend_label=folders[j])
-			st.bokeh_chart(p2, use_container_width=True)
-
-
-			# sel_option = st.radio('Select Plot', ['REE', 'CI Normalised','CM Normalised'], horizontal=True)
-			# subset_elements=st.session_state.all_data[0].columns.tolist()[119:133]
-			# x_labels=subset_elements
-			# p2= figure(
-			# title='REE plot', x_range=x_labels, x_axis_label="Element", y_axis_label="Abundance (ppm)")
-			# colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
-			# p2.y_range = Range1d(0, 100)
-			# norm_data=pd.read_csv('norm_data.csv', sep=';',decimal=',')
-			# normdata=norm_data.loc[:, subset_elements]
-			# if sel_option == 'REE':
-			# 	for j in range(len(folders)):
-			# 		a=st.session_state.all_data[j][subset_elements]
-			# 		for col in a:
-			# 			p2.line(x='index',y=col,source=a,color=colours[j],line_width=2,legend_label=folders[j])
-			# if sel_option == 'CI Normalised':
-			# 	for j in range(len(folders)):
-			# 		a=st.session_state.all_data[j][subset_elements]
-			# 		final=a.div(normdata.iloc[0], axis=1)
-			# 		for col in final:
-			# 			p2.line(x='index',y=col,source=final,color=colours[j],line_width=2,legend_label=folders[j])
-			# else:
-			# 	for j in range(len(folders)):
-			# 		a=st.session_state.all_data[j][subset_elements]
-			# 		final=a.div(normdata.iloc[1], axis=1)
-			# 		for col in final:
-			# 			p2.line(x='index',y=col,source=final,color=colours[j],line_width=2,legend_label=folders[j])
-			# st.bokeh_chart(p2, use_container_width=True)
-			
-				
-				
+			st.bokeh_chart(p2, use_container_width=True)						
 		with tab3:
 			col1, col2 = st.columns([1,5])
 			with col1:
