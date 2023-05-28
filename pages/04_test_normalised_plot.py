@@ -54,8 +54,4 @@ st.bokeh_chart(p2, use_container_width=True)
 
 
 
-#st.write('Selected only REE ELEMENTS')
-#normdata=norm_data.loc[:,ree_selected]
-#georoc_data=georoc_file.loc[:,ree_selected]
-#st.write(normdata)
-#st.write(georoc_data)
+
