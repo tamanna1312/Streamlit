@@ -90,7 +90,7 @@ if select_normalising=='CH':
 		for col in CH_Norm:
 			p2.line(x='index',y=col,source=CH_Norm,color=colours[j],line_width=2,legend_label=folders[j])
 
-	st.bokeh_chart(p2, use_container_width=True)
+st.bokeh_chart(p2, use_container_width=True)
 
 
 
