@@ -11,7 +11,7 @@ from bokeh.models import ColumnDataSource
 from folium import plugins
 from bokeh.models import Range1d
 
-st.title('GEOROC DATA VISUALISER')
+st.title('GEOCHEMICAL DATA VISUALISER')
 st.text('The Georoc data contains major and trace element concentrations, radiogenic and nonradiogenic isotope ratios as well as analytical ages for whole rocks, glasses, minerals and inclusions. Metadata include geospatial and other sample information, for example latitude, longitude, type of eruption etc, analytical details and references.')
 st.header('Data Selection')
 
