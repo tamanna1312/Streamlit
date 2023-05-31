@@ -12,7 +12,7 @@ from folium import plugins
 from bokeh.models import Range1d
 
 st.title('GEOCHEMICAL DATA VISUALISER')
-st.text('The Georoc data contains major and trace element concentrations, radiogenic and nonradiogenic isotope ratios as well as analytical ages for whole rocks, glasses, minerals and inclusions. Metadata include geospatial and other sample information, for example latitude, longitude, type of eruption etc, analytical details and references.')
+#st.text('The Georoc data contains major and trace element concentrations, radiogenic and nonradiogenic isotope ratios as well as analytical ages for whole rocks, glasses, minerals and inclusions. Metadata include geospatial and other sample information, for example latitude, longitude, type of eruption etc, analytical details and references.')
 st.header('Data Selection')
 
 # This is how it looked before, the problem is, that it runs each time an interaction such as a selection is done. This takes up huge amounts of time.
