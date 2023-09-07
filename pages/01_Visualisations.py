@@ -129,7 +129,7 @@ else:
 					if select_normalising=='CI':
 						CI_Norm=a.div(normdata.iloc[0], axis=1)
 						for col in CI_Norm:
-							p2.line(x=x_labels,y=col,source=CI_Norm,color=colours[j],line_width=2,legend_label=folders[j])
+							p2.line(x=selected_elements,y=col,source=CI_Norm,color=colours[j],line_width=2,legend_label=folders[j])
 					if select_normalising=='CH':
 						CH_Norm=a.div(normdata.iloc[1], axis=1)
 						for col in CH_Norm:
