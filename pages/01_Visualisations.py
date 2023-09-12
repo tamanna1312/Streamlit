@@ -24,7 +24,7 @@ st.header('Data Selection')
 # 	df_list = []
 # 	for file in files:
 # 		df = pd.read_csv(file,encoding='ISO-8859-1')
-# 		df.rename(columns={'LATITUDE MAX': 'LATITUDE', 'LONGITUDE MAX': 'LONGITUDE'}, inplace=True)
+# 		df.rename(columns={'LATITUDE MAX': 'LATITUDE', 'LONGITUDE MAX': 'LONGITUDE '}, inplace=True)
 # 		df2 = df.fillna(0)
 # 		if len(df2) < 20:
 # 			df_list.append(df2.sample(len(df2)))
@@ -128,6 +128,8 @@ else:
 					a=st.session_state.all_data[j][selected_elements]
 					if select_normalising=='CI':
 						CI_Norm=a.div(normdata.iloc[0], axis=1)
+						st.write(a)
+						st.write(CI_Norm)
 						for col in CI_Norm:
 							p2.line(x='index',y=col,source=CI_Norm,color=colours[j],line_width=2,legend_label=folders[j])
 					if select_normalising=='CH':
