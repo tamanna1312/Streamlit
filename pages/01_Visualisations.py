@@ -132,6 +132,7 @@ else:
 							p2.line(x=selected_elements,y=col,source=CI_Norm,color=colours[j],line_width=2,legend_label=folders[j])
 					if select_normalising=='CH':
 						CH_Norm=a.div(normdata.iloc[1], axis=1)
+						st.write(a)
 						st.write(CH_Norm)
 						for col in CH_Norm:
 							p2.line(x='index',y=col,source=CH_Norm,color=colours[j],line_width=2,legend_label=folders[j])
