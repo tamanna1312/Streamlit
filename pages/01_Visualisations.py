@@ -128,8 +128,9 @@ else:
 					a=st.session_state.all_data[j][selected_elements]
 					if select_normalising=='CI':
 						CI_Norm=a.div(normdata.iloc[0], axis=1)
+						CI_Norm1= CI_Norm.T
 						st.write(a)
-						st.write(CI_Norm)
+						st.write(CI_Norm1)
 						for col in CI_Norm:
 							p2.line(x='index',y=col,source=CI_Norm,color=colours[j],line_width=2,legend_label=folders[j])
 					if select_normalising=='CH':
