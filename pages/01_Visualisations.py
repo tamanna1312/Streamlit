@@ -147,9 +147,9 @@ else:
 					if select_normalising=='CM':
 						CM_Norm=a.div(normdata.iloc[2], axis=1)
 						CM_Norm1 = CM_Norm.T
-						plt.plot(CM_Norm1[CM_Norm1 != 0], c = colours[j])
+						plt.plot(CM_Norm1[CM_Norm1 != 0], c = colours[j], label = folders)
 						plt.ylabel('sample / CM')
-			plt.legend(folders)
+			#plt.legend()
 				
 				
 					#st.write(labels[j])
