@@ -139,13 +139,17 @@ else:
 						CH_Norm=a.div(normdata.iloc[1], axis=1)
 						st.write(a)
 						st.write(CH_Norm)
-						for col in CH_Norm:
-							p2.line(x='index',y=col,source=CH_Norm,color=colours[j],line_width=2,legend_label=folders[j])
+						plt.plot(CH_Norm.T)
+						#for col in CH_Norm:
+						#	p2.line(x='index',y=col,source=CH_Norm,color=colours[j],line_width=2,legend_label=folders[j])
 					if select_normalising=='CM':
 						CM_Norm=a.div(normdata.iloc[2], axis=1)
-						for col in CM_Norm:
-							p2.line(x='index',y=col,source=CM_Norm,color=colours[j],line_width=2,legend_label=folders[j])
-			st.bokeh_chart(p2, use_container_width=True)						
+						plt.plot(CM_Norm.T)
+
+			
+						#for col in CM_Norm:
+						#	p2.line(x='index',y=col,source=CM_Norm,color=colours[j],line_width=2,legend_label=folders[j])
+			#st.bokeh_chart(p2, use_container_width=True)						
 		with tab3:
 			col1, col2 = st.columns([1,5])
 			with col1:
