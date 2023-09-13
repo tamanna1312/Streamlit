@@ -126,7 +126,7 @@ else:
 			#title=select_options, x_range=x_labels, x_axis_label="Element",y_axis_label=select_normalising )
 			#p2.y_range = Range1d(0, 500)
 			fig = plt.figure()
-			for j in range(len(folders)):
+			for j, k in zip(range(len(folders)), folders):
 					a=st.session_state.all_data[j][selected_elements]
 				
 					if select_normalising=='CI':
@@ -153,7 +153,7 @@ else:
 						CM_Norm1 = CM_Norm.T
 						plt.plot(CM_Norm1[CM_Norm1 != 0], c = colours[j])
 						plt.ylabel('sample / CM')
-					plt.legend(folders[j])
+					plt.legend(k)
 					#st.write(labels[j])
 
 						#plt.legend(folders[j])
