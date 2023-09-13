@@ -144,6 +144,7 @@ else:
 						st.write(CH_Norm)
 						CH_Norm1 = CH_Norm.T
 						plt.plot(CH_Norm1[CH_Norm1 != 0], c = col)
+						plt.legend(folders)
 						plt.ylabel('sample / CH')
 						#for col in CH_Norm:
 						#	p2.line(x='index',y=col,source=CH_Norm,color=colours[j],line_width=2,legend_label=folders[j])
@@ -158,7 +159,7 @@ else:
 			#st.bokeh_chart(p2, use_container_width=True)
 			#plt.show()
 			plt.yscale('log')
-			plt.legend(folders)
+			
 			st.pyplot(fig)
 
 		with tab3:
