@@ -132,14 +132,14 @@ else:
 					if select_normalising=='CI':
 						CI_Norm=a.div(normdata.iloc[0], axis=1)
 						CI_Norm1= CI_Norm.T
-						plt.plot(CI_Norm1[CI_Norm1 != 0], c = colours[j])
+						plt.plot(CI_Norm1[CI_Norm1 != 0], c = colours[j], label = folders)
 						plt.ylabel('sample / CI')
 						#for col in CI_Norm1:
 							#p2.line(x='index',y=col,source=CI_Norm1,color=colours[j],line_width=2,legend_label=folders[j])
 					if select_normalising=='CH':
 						CH_Norm=a.div(normdata.iloc[1], axis=1)
 						CH_Norm1 = CH_Norm.T
-						plt.plot(CH_Norm1[CH_Norm1 != 0], c = colours[j])
+						plt.plot(CH_Norm1[CH_Norm1 != 0], c = colours[j], label = folders)
 						plt.ylabel('sample / CH')
 						#plt.legend(folders[j])
 						#for col in CH_Norm:
@@ -149,7 +149,7 @@ else:
 						CM_Norm1 = CM_Norm.T
 						plt.plot(CM_Norm1[CM_Norm1 != 0], c = colours[j], label = folders)
 						plt.ylabel('sample / CM')
-			#plt.legend()
+					plt.legend()
 				
 				
 					#st.write(labels[j])
