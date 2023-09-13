@@ -153,7 +153,7 @@ else:
 						CM_Norm1 = CM_Norm.T
 						plt.plot(CM_Norm1[CM_Norm1 != 0], c = colours[j])
 						plt.ylabel('sample / CM')
-					plt.legend(k)
+					plt.legend(folders)
 					#st.write(labels[j])
 
 						#plt.legend(folders[j])
