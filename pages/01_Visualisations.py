@@ -158,7 +158,7 @@ else:
 			#st.bokeh_chart(p2, use_container_width=True)
 			#plt.show()
 			plt.yscale('log')
-			plt.legend(folders[j])
+			plt.legend(folders)
 			st.pyplot(fig)
 
 		with tab3:
