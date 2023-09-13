@@ -121,7 +121,6 @@ else:
 			normdata=norm_data.loc[:,selected_elements]
 			x_labels=selected_elements
 			colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
-			labels = ['Cratons', 'CFBs', 'Rift Volcanics', 'Oceanic Plateaus', 'OceanBasinFlood Basalts','Complex Volcanic Settings','Convergent Margins']
 			select_normalising=st.radio('Select Normalising Option', ['CI','CH','CM'])
 			#p2= figure(
 			#title=select_options, x_range=x_labels, x_axis_label="Element",y_axis_label=select_normalising )
@@ -154,7 +153,7 @@ else:
 						CM_Norm1 = CM_Norm.T
 						plt.plot(CM_Norm1[CM_Norm1 != 0], c = colours[j])
 						plt.ylabel('sample / CM')
-					#plt.legend(labels[j])
+					plt.legend(folders[j])
 					st.write(labels[j])
 
 						#plt.legend(folders[j])
