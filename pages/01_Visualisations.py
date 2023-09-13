@@ -122,9 +122,9 @@ else:
 			x_labels=selected_elements
 			colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
 			select_normalising=st.radio('Select Normalising Option', ['CI','CH','CM'])
-			p2= figure(
-			title=select_options, x_range=x_labels, x_axis_label="Element",y_axis_label=select_normalising )
-			p2.y_range = Range1d(0, 500)
+			#p2= figure(
+			#title=select_options, x_range=x_labels, x_axis_label="Element",y_axis_label=select_normalising )
+			#p2.y_range = Range1d(0, 500)
 			for j in range(len(folders)):
 					a=st.session_state.all_data[j][selected_elements]
 					if select_normalising=='CI':
@@ -132,7 +132,7 @@ else:
 						CI_Norm1= CI_Norm.T
 						st.write(a)
 						st.write(CI_Norm1)
-						plt.plot(CI_Norm1)
+						plt.plot(CI_Norm1[CI_Norm1 != 0])
 						#for col in CI_Norm1:
 							#p2.line(x='index',y=col,source=CI_Norm1,color=colours[j],line_width=2,legend_label=folders[j])
 					if select_normalising=='CH':
