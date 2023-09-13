@@ -154,6 +154,8 @@ else:
 						plt.plot(CM_Norm1[CM_Norm1 != 0], c = colours[j])
 						plt.ylabel('sample / CM')
 					plt.legend(folders)
+					leg = ax.get_legend()
+					leg.legendHandles[j].set_color(colours[j])
 					#st.write(labels[j])
 
 						#plt.legend(folders[j])
