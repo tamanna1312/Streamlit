@@ -125,8 +125,10 @@ else:
 			#p2= figure(
 			#title=select_options, x_range=x_labels, x_axis_label="Element",y_axis_label=select_normalising )
 			#p2.y_range = Range1d(0, 500)
+			fig = plt.figure()
 			for j in range(len(folders)):
 					a=st.session_state.all_data[j][selected_elements]
+				
 					if select_normalising=='CI':
 						CI_Norm=a.div(normdata.iloc[0], axis=1)
 						CI_Norm1= CI_Norm.T
@@ -145,7 +147,6 @@ else:
 					if select_normalising=='CM':
 						CM_Norm=a.div(normdata.iloc[2], axis=1)
 						plt.plot(CM_Norm.T)
-
 			
 						#for col in CM_Norm:
 						#	p2.line(x='index',y=col,source=CM_Norm,color=colours[j],line_width=2,legend_label=folders[j])
