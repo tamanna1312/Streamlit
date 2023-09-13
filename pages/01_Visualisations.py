@@ -151,7 +151,9 @@ else:
 						#for col in CM_Norm:
 						#	p2.line(x='index',y=col,source=CM_Norm,color=colours[j],line_width=2,legend_label=folders[j])
 			#st.bokeh_chart(p2, use_container_width=True)
-			plt.show()
+			#plt.show()
+			st.pyplot(fig)
+
 		with tab3:
 			col1, col2 = st.columns([1,5])
 			with col1:
