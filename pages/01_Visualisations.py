@@ -134,7 +134,7 @@ else:
 						CI_Norm1= CI_Norm.T
 						st.write(a)
 						st.write(CI_Norm1)
-						plt.plot(CI_Norm1[CI_Norm1 != 0], c = col)
+						plt.plot(CI_Norm1[CI_Norm1 != 0], c = col, label = folders[j])
 						plt.ylabel('sample / CI')
 						#for col in CI_Norm1:
 							#p2.line(x='index',y=col,source=CI_Norm1,color=colours[j],line_width=2,legend_label=folders[j])
@@ -142,13 +142,15 @@ else:
 						CH_Norm=a.div(normdata.iloc[1], axis=1)
 						st.write(a)
 						st.write(CH_Norm)
-						plt.plot(CH_Norm.T, c = col)
+						CH_Norm1 = CH_Norm.T
+						plt.plot(CH_Norm1[CH_Norm1 != 0], c = col, label = folders[j])
 						plt.ylabel('sample / CH')
 						#for col in CH_Norm:
 						#	p2.line(x='index',y=col,source=CH_Norm,color=colours[j],line_width=2,legend_label=folders[j])
 					if select_normalising=='CM':
 						CM_Norm=a.div(normdata.iloc[2], axis=1)
-						plt.plot(CM_Norm.T, c = col)
+						CM_Norm1 = CM_Norm.T
+						plt.plot(CM_Norm1[CM_Norm1 != 0], c = col, label = folders[j])
 						plt.ylabel('sample / CM')
 			
 						#for col in CM_Norm:
@@ -156,6 +158,7 @@ else:
 			#st.bokeh_chart(p2, use_container_width=True)
 			#plt.show()
 			plt.yscale('log')
+			plt.legend()
 			st.pyplot(fig)
 
 		with tab3:
