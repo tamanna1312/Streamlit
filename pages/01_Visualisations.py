@@ -164,7 +164,7 @@ else:
 			
 			#plt.show()
 			#plt.legend(labels[j])
-			plt.legend(folders)
+				plt.legend(folders[j])
 			plt.yscale('log')
 			
 			st.pyplot(fig)
