@@ -131,8 +131,9 @@ else:
 						CI_Norm1= CI_Norm.T
 						st.write(a)
 						st.write(CI_Norm1)
-						for col in CI_Norm1:
-							p2.line(x='index',y=col,source=CI_Norm1,color=colours[j],line_width=2,legend_label=folders[j])
+						plt.plot(CI_Norm1)
+						#for col in CI_Norm1:
+							#p2.line(x='index',y=col,source=CI_Norm1,color=colours[j],line_width=2,legend_label=folders[j])
 					if select_normalising=='CH':
 						CH_Norm=a.div(normdata.iloc[1], axis=1)
 						st.write(a)
