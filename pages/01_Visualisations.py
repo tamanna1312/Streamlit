@@ -157,7 +157,9 @@ else:
 						#plt.legend(folders[j])
 						#for col in CM_Norm:
 						#	p2.line(x='index',y=col,source=CM_Norm,color=colours[j],line_width=2,legend_label=folders[j])
-					plt.legend(folders)
+				st.write(folders)
+				st.write(folders[j])
+				plt.legend(folders)
 
 			#st.bokeh_chart(p2, use_container_width=True)
 			
