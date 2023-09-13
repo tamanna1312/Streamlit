@@ -136,6 +136,7 @@ else:
 						st.write(CI_Norm1)
 						plt.plot(CI_Norm1[CI_Norm1 != 0], c = colours[j])
 						plt.ylabel('sample / CI')
+						plt.legend(folders[j])
 						#for col in CI_Norm1:
 							#p2.line(x='index',y=col,source=CI_Norm1,color=colours[j],line_width=2,legend_label=folders[j])
 					if select_normalising=='CH':
@@ -146,6 +147,7 @@ else:
 						plt.plot(CH_Norm1[CH_Norm1 != 0], c = colours[j])
 						plt.legend(folders)
 						plt.ylabel('sample / CH')
+						plt.legend(folders[j])
 						#for col in CH_Norm:
 						#	p2.line(x='index',y=col,source=CH_Norm,color=colours[j],line_width=2,legend_label=folders[j])
 					if select_normalising=='CM':
@@ -153,13 +155,13 @@ else:
 						CM_Norm1 = CM_Norm.T
 						plt.plot(CM_Norm1[CM_Norm1 != 0], c = colours[j])
 						plt.ylabel('sample / CM')
-			
+						plt.legend(folders[j])
 						#for col in CM_Norm:
 						#	p2.line(x='index',y=col,source=CM_Norm,color=colours[j],line_width=2,legend_label=folders[j])
 			#st.bokeh_chart(p2, use_container_width=True)
 			
 			#plt.show()
-					plt.legend(folders)
+					#plt.legend(folders)
 			plt.yscale('log')
 			
 			st.pyplot(fig)
