@@ -149,7 +149,6 @@ else:
 						CM_Norm1 = CM_Norm.T
 						plt.plot(CM_Norm1[CM_Norm1 != 0], c = colours[j], label = folders)
 						plt.ylabel('sample / CM')
-			plt.legend()
 				
 				
 					#st.write(labels[j])
@@ -165,7 +164,7 @@ else:
 			
 			#plt.show()
 			#plt.legend(labels[j])
-
+			plt.legend()
 			plt.yscale('log')
 			
 			st.pyplot(fig)
