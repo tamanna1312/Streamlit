@@ -59,7 +59,7 @@ if sel_vis == 'map':
 		st.write('No data loaded')
 	else:
 		colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
-		map = folium.Map(location=[34, 100], zoom_start=5, control_scale=True, tiles='https://tiles.stadiamaps.com/tiles/alidade_satellite/{z}/{x}/{y}{r}.{ext}', 
+		map = folium.Map(location=[34, 100], zoom_start=5, control_scale=True, tiles='https://tiles.stadiamaps.com/tiles/alidade_satellite/{z}/{x}/{y}{r}.jpg', 
                          attr='&copy; CNES, Distribution Airbus DS, © Airbus DS, © PlanetObserver (Contains Copernicus Data) | &copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',)
 		marker_cluster = plugins.MarkerCluster().add_to(map)
 		for j in range(len(folders)):
