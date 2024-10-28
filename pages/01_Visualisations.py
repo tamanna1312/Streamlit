@@ -111,12 +111,11 @@ else:
 			fig = plt.figure()
 			for j in range(len(folders)):
 				a = st.session_state.all_data[j][selected_elements]
-
-            			if select_normalising == 'CI':
-                			CI_Norm = a.div(normdata.iloc[0], axis=1)
-                			CI_Norm1 = CI_Norm.T
-                			plt.plot(CI_Norm1[CI_Norm1 != 0], color=colours[j], label=folders[j])
-                			plt.ylabel('sample / CI')
+				if select_normalising == 'CI':
+					CI_Norm = a.div(normdata.iloc[0], axis=1)
+					CI_Norm1 = CI_Norm.T
+					plt.plot(CI_Norm1[CI_Norm1 != 0], color=colours[j], label=folders[j])
+					plt.ylabel('sample / CI')
             			elif select_normalising == 'CH':
                 			CH_Norm = a.div(normdata.iloc[1], axis=1)
                 			CH_Norm1 = CH_Norm.T
