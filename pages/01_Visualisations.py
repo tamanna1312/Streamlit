@@ -59,7 +59,8 @@ if sel_vis == 'map':
 		st.write('No data loaded')
 	else:
 		colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
-		map = folium.Map(location=[34, 100], zoom_start=5, control_scale=True,tiles = 'Stamen Terrain')
+		map = folium.Map(location=[34, 100], zoom_start=5, control_scale=True, tiles='Stamen Terrain', 
+                         attr='Map tiles by Stamen Design, CC BY 3.0 — Map data © OpenStreetMap')
 		marker_cluster = plugins.MarkerCluster().add_to(map)
 		for j in range(len(folders)):
 			for i in range(0,len(st.session_state.all_data[j])):
