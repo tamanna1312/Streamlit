@@ -141,7 +141,7 @@ else:
 					normalized_data = a.div(normdata.iloc[2], axis=1).T
 					ylabel = 'sample / CM'
 			plt.plot(normalized_data, color=colours[j], alpha=0.5)  # Adjust alpha if necessary for clarity
-		legend_elements = [Line2D([0], [0], color=colours[i], lw=2, label=folder) for i, folder in enumerate(folders)]
+			legend_elements = [Line2D([0], [0], color=colours[i], lw=2, label=folder) for i, folder in enumerate(folders)]
 		plt.legend(handles=legend_elements)
 		plt.yscale('log')
 		plt.ylabel(ylabel)
