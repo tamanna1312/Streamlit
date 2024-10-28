@@ -109,9 +109,7 @@ else:
 			colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
 			select_normalising=st.radio('Select Normalising Option', ['CI','CH','CM'])
 			fig = plt.figure()
-        
-       
-        		for j in range(len(folders)):
+        	        for j in range(len(folders)):
             			a = st.session_state.all_data[j][selected_elements]
 
             			if select_normalising == 'CI':
