@@ -16,25 +16,10 @@ st.title('GEOCHEMICAL DATA VISUALISER')
 #st.text('The Georoc data contains major and trace element concentrations, radiogenic and nonradiogenic isotope ratios as well as analytical ages for whole rocks, glasses, minerals and inclusions. Metadata include geospatial and other sample information, for example latitude, longitude, type of eruption etc, analytical details and references.')
 st.header('Data Selection')
 
-# This is how it looked before, the problem is, that it runs each time an interaction such as a selection is done. This takes up huge amounts of time.
-# folders = st.multiselect('Select Tectonic Unit(s)', ['Cratons', 'CFBs', 'Rift Volcanics', 'Oceanic Plateaus', 'OceanBasinFlood Basalts','Complex Volcanic Settings','Convergent Margins'], ['Cratons'])
+if "all_data" not in st.session_state:
+    st.session_state.all_data = []  # or any default value
 
-# st.session_state.all_data = []
-# for i in folders:
-# 	files = glob.glob(i+'/*.csv')
-# 	df_list = []
-# 	for file in files:
-# 		df = pd.read_csv(file,encoding='ISO-8859-1')
-# 		df.rename(columns={'LATITUDE MAX': 'LATITUDE', 'LONGITUDE MAX': 'LONGITUDE '}, inplace=True)
-# 		df2 = df.fillna(0)
-# 		if len(df2) < 20:
-# 			df_list.append(df2.sample(len(df2)))
-# 		else:
-# 			df_list.append(df2.sample(20))
-# 	st.session_state.all_data.append(pd.concat(df_list).reset_index())
-
-# sel_vis = st.radio('Select Visualisation', ['map', 'plots'], horizontal=True)
-
+# st.write(st.session_state)
 
 with st.form('data'):
 	folders = st.multiselect('Select Tectonic Unit(s)', ['Cratons', 'CFBs', 'Rift Volcanics', 'Oceanic Plateaus', 'OceanBasinFlood Basalts','Complex Volcanic Settings','Convergent Margins'], ['Cratons'])
