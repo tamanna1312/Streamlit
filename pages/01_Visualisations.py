@@ -126,9 +126,7 @@ else:
 						CM_Norm=a.div(normdata.iloc[2], axis=1)
 						CM_Norm1 = CM_Norm.T
 						plt.plot(CM_Norm1[CM_Norm1 != 0], c=colours[j], label=folders[j])
-						plt.ylabel('sample / CM')
-				
-					
+						plt.ylabel('sample / CM')		
 			
         		plt.yscale('log')
         		plt.legend() 
