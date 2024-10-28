@@ -109,43 +109,27 @@ else:
 			colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
 			select_normalising=st.radio('Select Normalising Option', ['CI','CH','CM'])
 			fig = plt.figure()
-			# for j in range(len(folders)):
-			# 	a = st.session_state.all_data[j][selected_elements]
-			# 	if select_normalising == 'CI':
-			# 		CI_Norm = a.div(normdata.iloc[0], axis=1)
-			# 		CI_Norm1 = CI_Norm.T
-			# 		plt.plot(CI_Norm1[CI_Norm1 != 0], color=colours[j], label=folders[j] if j == 0 else "_nolegend_")
-			# 		plt.ylabel('sample / CI')
-			# 	elif select_normalising == 'CH':
-			# 		CH_Norm = a.div(normdata.iloc[1], axis=1)
-			# 		CH_Norm1 = CH_Norm.T
-			# 		plt.plot(CH_Norm1[CH_Norm1 != 0], color=colours[j], label=folders[j] if j == 1 else "_nolegend_")
-			# 		plt.ylabel('sample / CH')
-			# 	elif select_normalising == 'CM':
-			# 		CM_Norm = a.div(normdata.iloc[2], axis=1)
-			# 		CM_Norm1 = CM_Norm.T
-			# 		plt.plot(CM_Norm1[CM_Norm1 != 0], color=colours[j], label=folders[j] if j == 2 else "_nolegend_")
-			# 		plt.ylabel('sample / CM')
-			# plt.yscale('log')
-			# plt.legend(folders) 
-			# st.pyplot(fig)
-			for j, folder in enumerate(folders):
+			for j in range(len(folders)):
 				a = st.session_state.all_data[j][selected_elements]
 				if select_normalising == 'CI':
-					normalized_data = a.div(normdata.iloc[0], axis=1).T
-					ylabel = 'sample / CI'
+					CI_Norm = a.div(normdata.iloc[0], axis=1)
+					CI_Norm1 = CI_Norm.T
+					plt.plot(CI_Norm1[CI_Norm1 != 0], color=colours[j], label=folders[j] if j == 0 else "_nolegend_")
+					plt.ylabel('sample / CI')
 				elif select_normalising == 'CH':
-					normalized_data = a.div(normdata.iloc[1], axis=1).T
-					ylabel = 'sample / CH'
+					CH_Norm = a.div(normdata.iloc[1], axis=1)
+					CH_Norm1 = CH_Norm.T
+					plt.plot(CH_Norm1[CH_Norm1 != 0], color=colours[j], label=folders[j] if j == 1 else "_nolegend_")
+					plt.ylabel('sample / CH')
 				elif select_normalising == 'CM':
-					normalized_data = a.div(normdata.iloc[2], axis=1).T
-					ylabel = 'sample / CM'
-			plt.plot(normalized_data, color=colours[j], alpha=0.5)  # Adjust alpha if necessary for clarity
-			legend_elements = [Line2D([0], [0], color=colours[i], lw=2, label=folder) for i, folder in enumerate(folders)]
-		plt.legend(handles=legend_elements)
-		plt.yscale('log')
-		plt.ylabel(ylabel)
-		st.pyplot(fig)
+					CM_Norm = a.div(normdata.iloc[2], axis=1)
+					CM_Norm1 = CM_Norm.T
+					plt.plot(CM_Norm1[CM_Norm1 != 0], color=colours[j], label=folders[j] if j == 2 else "_nolegend_")
+					plt.ylabel('sample / CM')
+			plt.yscale('log')
+			plt.legend(folders) 
+			st.pyplot(fig)
+			
 
 		with tab3:
 			col1, col2 = st.columns([1,5])
