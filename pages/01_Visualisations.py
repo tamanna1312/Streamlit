@@ -128,9 +128,9 @@ else:
 						plt.plot(CM_Norm1[CM_Norm1 != 0], c=colours[j], label=folders[j])
 						plt.ylabel('sample / CM')		
 			
-		        	plt.yscale('log')
-		        	plt.legend() 
-		        	st.pyplot(fig)
+		        plt.yscale('log')
+		        plt.legend() 
+		        st.pyplot(fig)
 
 		with tab3:
 			col1, col2 = st.columns([1,5])
