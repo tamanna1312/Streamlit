@@ -114,17 +114,17 @@ else:
 				if select_normalising == 'CI':
 					CI_Norm = a.div(normdata.iloc[0], axis=1)
 					CI_Norm1 = CI_Norm.T
-					plt.plot(CI_Norm1[CI_Norm1 != 0], color=colours[j])
+					plt.plot(CI_Norm1[CI_Norm1 != 0], color=colours[j], label=folders[j] if j == 0 else "_nolegend_")
 					plt.ylabel('sample / CI')
 				elif select_normalising == 'CH':
 					CH_Norm = a.div(normdata.iloc[1], axis=1)
 					CH_Norm1 = CH_Norm.T
-					plt.plot(CH_Norm1[CH_Norm1 != 0], color=colours[j])
+					plt.plot(CH_Norm1[CH_Norm1 != 0], color=colours[j], label=folders[j] if j == 1 else "_nolegend_")
 					plt.ylabel('sample / CH')
 				elif select_normalising == 'CM':
 					CM_Norm = a.div(normdata.iloc[2], axis=1)
 					CM_Norm1 = CM_Norm.T
-					plt.plot(CM_Norm1[CM_Norm1 != 0], color=colours[j])
+					plt.plot(CM_Norm1[CM_Norm1 != 0], color=colours[j], label=folders[j] if j == 2 else "_nolegend_")
 					plt.ylabel('sample / CM')
 			plt.yscale('log')
 			plt.legend(folders) 
