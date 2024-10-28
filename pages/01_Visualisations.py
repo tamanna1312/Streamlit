@@ -59,9 +59,8 @@ if sel_vis == 'map':
 		st.write('No data loaded')
 	else:
 		colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
-		map = folium.Map(location=[34, 100], zoom_start=5, control_scale=True, tiles="https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png", 
-                         attr='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> '
-    				'contributors, &copy; <a href="https://cartodb.com/attributions">CartoDB</a>')
+		map = folium.Map(location=[34, 100], zoom_start=5, control_scale=True, tiles='https://tile.openstreetmap.org/{z}/{x}/{y}.png', 
+                         attr='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors')
 		marker_cluster = plugins.MarkerCluster().add_to(map)
 		for j in range(len(folders)):
 			for i in range(0,len(st.session_state.all_data[j])):
