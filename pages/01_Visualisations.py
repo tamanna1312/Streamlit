@@ -109,8 +109,8 @@ else:
 			colours = ['blue', 'green', 'purple', 'pink', 'yellow', 'grey', 'black']
 			select_normalising=st.radio('Select Normalising Option', ['CI','CH','CM'])
 			fig = plt.figure()
-        	        for j in range(len(folders)):
-            			a = st.session_state.all_data[j][selected_elements]
+			for j in range(len(folders)):
+				a = st.session_state.all_data[j][selected_elements]
 
             			if select_normalising == 'CI':
                 			CI_Norm = a.div(normdata.iloc[0], axis=1)
@@ -127,14 +127,8 @@ else:
                 			CM_Norm1 = CM_Norm.T
                 			plt.plot(CM_Norm1[CM_Norm1 != 0], color=colours[j], label=folders[j])
                 			plt.ylabel('sample / CM')
-
-        # Set log scale for y-axis
         		plt.yscale('log')
-        
-        # Display legend
         		plt.legend() 
-        
-        # Display the plot in Streamlit
         		st.pyplot(fig)
 
 		with tab3:
