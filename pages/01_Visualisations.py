@@ -128,22 +128,11 @@ else:
 						plt.plot(CM_Norm1[CM_Norm1 != 0], c=colours[j], label=folders[j])
 						plt.ylabel('sample / CM')
 				
-					#st.write(labels[j])
-
-						#plt.legend(folders[j])
-						#for col in CM_Norm:
-						#	p2.line(x='index',y=col,source=CM_Norm,color=colours[j],line_width=2,legend_label=folders[j])
-				#st.write(folders)
-				#st.write(folders[j])
-				#st.write(str(folders))
-				#st.write(str(folders[j]))
-			#st.bokeh_chart(p2, use_container_width=True)
-			#plt.legend()
-			#plt.show()
-			plt.legend(folders)
-			plt.yscale('log')
+					
 			
-			st.pyplot(fig)
+        		plt.yscale('log')
+        		plt.legend() 
+        		st.pyplot(fig)
 
 		with tab3:
 			col1, col2 = st.columns([1,5])
